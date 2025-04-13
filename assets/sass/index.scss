@@ -1,0 +1,12 @@
+@use "normalize";
+@use "fonts";
+@use "vars";
+@use "templates";
+
+@use "components/header"; //по аналогии импортируем свой раздел
+@use "components/main";
+@use "components/section-hero";
+@use "components/section-help";
+@use "components/section-volunteering";
+@use "components/section-take";
+@use "components/footer";

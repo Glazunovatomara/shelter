@@ -1,0 +1,90 @@
+
+// ================ОБЩИЕ СТИЛИ=================//
+@use "vars";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: vars.$light-green;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%; //10px
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  color: vars.$dark;
+}
+
+a {
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  color: vars.$dark;
+}
+
+//==================Заголовки====================//
+.page-title {
+  font-size: 3.6em;
+  font-weight: 500;
+  line-height: 44px;
+  text-transform: uppercase;
+  color: vars.$white;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.8em;
+    line-height: 32px;
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 2.4em;
+    line-height: 28px;
+  }
+}
+
+.title {
+  font-size: 3.2em;
+  font-weight: 500;
+  line-height: 39px;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.4em;
+    line-height: 28px;
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 1.8em;
+    line-height: 22px;
+  }
+}
+//================Конец Заголовки==================//
+
+//===================Навигация=====================//
+
+//===============Конец Навигация==================//
+
+//====================Логотип=====================//
+
+//==================Конец Логотип==================//
+
+//================КОНЕЦ ОБЩИЕ СТИЛИ================//
+
+//Шаблон для ограничения контента, добавлять к стилям командой @extend %container;
+%container {
+  max-width: 1440px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 120px;
+
+  @media screen and (max-width: 767px) {
+    padding: 0 40px;
+  }
+}
