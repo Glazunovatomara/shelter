@@ -1,0 +1,191 @@
+@use "../vars";
+@use "../templates";
+
+.section-help {
+  @extend %container;
+  min-height: 100vh;
+  padding: 100px 0;
+  background-color: vars.$beige;
+
+  &__title {
+    @extend .title;
+    text-align: center;
+    margin-bottom: 60px;
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1200px;
+    margin-bottom: 40px;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__content {
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: vars.$dark;
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
+
+.help-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  &__icon {
+    background-color: vars.$green;
+    border-radius: 50%;
+    padding: 16px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 101px;
+    height: 99px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: none;
+    }
+  }
+
+  &__title {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  &:hover:not(.help-card--active) .help-card__icon {
+    background-color: vars.$dark-beige;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active:not(.help-card--active) .help-card__icon {
+    transform: scale(0.95);
+  }
+}
+
+.help-card--active {
+  cursor: default;
+
+  .help-card__icon {
+    background-color: vars.$dark-beige;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .help-card__title {
+    color: vars.$dark-beige;
+    font-weight: 3000;
+  }
+}
+
+.help-content {
+  width: 1197px;
+  margin: 0 auto;
+  display: none;
+  @media screen and (max-width: 768px) {
+    width: 320px;
+  }
+
+  &--active {
+    display: block;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: vars.$dark;
+  }
+
+  .subtitle {
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+
+    li {
+      list-style: disc;
+      margin-bottom: 5px;
+    }
+  }
+  .help-content__donation p {
+    padding-top: 20px;
+  }
+}
+
+// Mobile View
+.mobile-help-view {
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .mobile-icon {
+      width: 101px;
+      height: 99px;
+      background-color: vars.$dark-beige;
+      border-radius: 50%;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: none;
+      }
+    }
+  }
+}
+
+.mobile-pagination {
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+
+    .pagination-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: vars.$green;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: vars.$dark-green;
+      }
+    }
+  }
+}
