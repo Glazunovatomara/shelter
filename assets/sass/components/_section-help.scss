@@ -29,11 +29,17 @@
   }
 
   &__content {
-    font-size: 1.6em;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 36px;
     color: vars.$dark;
     padding: 20px;
     border-radius: 20px;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      font-size: 16px;
+      line-height: 26px;
+      padding: 10px;
+    }
   }
 }
 
@@ -72,7 +78,7 @@
   }
 
   &:hover:not(.help-card--active) .help-card__icon {
-    background-color: vars.$dark-beige;
+    background-color: vars.$dark-green;
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
@@ -86,14 +92,13 @@
   cursor: default;
 
   .help-card__icon {
-    background-color: vars.$dark-beige;
+    background-color: vars.$dark-green;
     transform: none;
     box-shadow: none;
   }
 
   .help-card__title {
-    color: vars.$dark-beige;
-    font-weight: 3000;
+    color: vars.$dark-green;
   }
 }
 
@@ -118,8 +123,7 @@
   }
 
   .subtitle {
-    padding-top: 20px;
-    font-size: 20px;
+    padding-top: 30px;
     font-weight: 600;
   }
 
@@ -130,10 +134,13 @@
     li {
       list-style: disc;
       margin-bottom: 5px;
+      @media screen and (max-width: 768px) {
+        list-style: none;
+      }
     }
   }
   .help-content__donation p {
-    padding-top: 20px;
+    padding-top: 30px;
   }
 }
 
@@ -149,7 +156,7 @@
     .mobile-icon {
       width: 101px;
       height: 99px;
-      background-color: vars.$dark-beige;
+      background-color: vars.$dark-green;
       border-radius: 50%;
       padding: 16px;
       display: flex;

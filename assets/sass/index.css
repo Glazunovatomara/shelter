@@ -436,11 +436,19 @@ a {
   }
 }
 .section-help__content {
-  font-size: 1.6em;
-  line-height: 1.5;
+  font-size: 20px;
+  line-height: 36px;
   color: #2a322b;
   padding: 20px;
   border-radius: 20px;
+}
+@media screen and (max-width: 768px) {
+  .section-help__content {
+    text-align: center;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 10px;
+  }
 }
 
 .help-card {
@@ -476,7 +484,7 @@ a {
   transition: color 0.3s ease;
 }
 .help-card:hover:not(.help-card--active) .help-card__icon {
-  background-color: #ecec8d;
+  background-color: #92cc72;
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
@@ -488,13 +496,12 @@ a {
   cursor: default;
 }
 .help-card--active .help-card__icon {
-  background-color: #ecec8d;
+  background-color: #92cc72;
   transform: none;
   box-shadow: none;
 }
 .help-card--active .help-card__title {
-  color: #ecec8d;
-  font-weight: 3000;
+  color: #92cc72;
 }
 
 .help-content {
@@ -518,8 +525,7 @@ a {
   color: #2a322b;
 }
 .help-content .subtitle {
-  padding-top: 20px;
-  font-size: 20px;
+  padding-top: 30px;
   font-weight: 600;
 }
 .help-content ul {
@@ -530,8 +536,13 @@ a {
   list-style: disc;
   margin-bottom: 5px;
 }
+@media screen and (max-width: 768px) {
+  .help-content ul li {
+    list-style: none;
+  }
+}
 .help-content .help-content__donation p {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .mobile-help-view {
@@ -546,7 +557,7 @@ a {
   .mobile-help-view .mobile-icon {
     width: 101px;
     height: 99px;
-    background-color: #ecec8d;
+    background-color: #92cc72;
     border-radius: 50%;
     padding: 16px;
     display: flex;
