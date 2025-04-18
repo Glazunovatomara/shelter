@@ -33,7 +33,7 @@
     }
 }
 
-.header-logo__name {
+.header-logo__title {
     display: flex;
     flex-direction: column;
     font-size: 1.5em;
@@ -46,7 +46,7 @@
         font-size: 1.3em;
     }
 }
-.header-logo__name-n {
+.header-logo__subtitle {
     padding-top: 3px;
     font-size: 11px;
     font-weight: 300;
@@ -69,7 +69,7 @@
 .header-nav::before {
     content:'';
 }
-.header-nav__ul {
+.header-nav__list {
     display: flex;
     text-transform: uppercase;
     width: 100%;
@@ -83,16 +83,16 @@
 li {
     list-style-type: none;
 }
-.header-nav__ul-li {
+.header-nav__list-item {
     cursor: pointer;
     list-style-type: none;
 }
-.header-nav__ul-li a:hover {
+.header-nav__list-item a:hover {
     transition: 0.2s;
     font-weight: 500;
     color: vars.$dark-green;
 }
-.header-nav__ul-li a:active {
+.header-nav__list-item a:active {
     font-weight: 500;
 }
 
