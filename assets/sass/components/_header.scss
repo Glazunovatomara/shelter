@@ -1,0 +1,190 @@
+@use "../vars";
+@use "../templates";
+
+.header {
+    background-color: vars.$beige;
+}
+.header > div {
+    @extend %container;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 13px;
+
+    @media (max-width:1091px) {
+        position: fixed;
+        top: 0;
+        padding-bottom: 4px;
+        background-color: vars.$beige;
+    }
+}
+.header-logo {
+    display: flex;
+    max-width: 222px;
+    width: 100%;
+    gap: 8px;
+}
+.header-logo__img {
+    @media (max-width:1091px) {
+        width: 49px;
+    }
+}
+
+.header-logo__name {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 11px;
+    text-transform: uppercase;
+    align-self: center;
+
+    @media (max-width:1091px) {
+        font-size: 1.3em;
+    }
+}
+.header-logo__name-n {
+    padding-top: 3px;
+    font-size: 11px;
+    font-weight: 300;
+    color: #787878;
+
+    @media (max-width:1091px) {
+        font-size: 10px;
+    }
+}
+.header-nav {
+    display: flex;
+    max-width: 777px;
+    width: 100%;
+
+    @media (max-width:1091px) {
+        display: none;
+    }
+}
+.header-nav::after,
+.header-nav::before {
+    content:'';
+}
+.header-nav__ul {
+    display: flex;
+    text-transform: uppercase;
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 18px;
+}
+li {
+    list-style-type: none;
+}
+.header-nav__ul-li {
+    cursor: pointer;
+    list-style-type: none;
+}
+.header-nav__ul-li a:hover {
+    transition: 0.2s;
+    font-weight: 500;
+    color: vars.$dark-green;
+}
+.header-nav__ul-li a:active {
+    font-weight: 500;
+}
+
+//burger
+
+.header-menu {
+    align-content: center;
+
+    @media (min-width: 1092px) {
+        display: none;
+    }
+}
+.header-menu__checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+.header-menu__burger {
+    position: relative;
+    z-index: 1;
+    display: block;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    width: 24px;
+    height: 14px;
+}
+.header-menu__burger::after, 
+.header-menu__burger::before {
+    content: '';
+    right: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: vars.$pink;
+}
+.header-menu__burger::after {
+    bottom: 0;
+    transition: bottom .3s .15s, transform .3s;
+}
+.header-menu__burger::before {
+    top: 0;
+    box-shadow: 0 6px 0 vars.$pink;
+    transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+}
+.header-menu__checkbox:checked + .header-menu__burger::before {
+    top: 11px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 vars.$pink;
+    transition: box-shadow .15s, top .3s, transform .3s .15s;
+}
+.header-menu__checkbox:checked + .header-menu__burger::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+    transition: bottom .3s, transform .3s .15s;
+}
+
+.header-menu__list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    gap: 9px;
+    padding: 18px 10px 25px;
+    justify-content: center;
+    text-transform: uppercase;
+    background-color:  vars.$beige;
+    transform: translateY(-100%);
+    transition: 0.3s;
+    max-width: 400px;
+    width: 100%;
+}
+.header-menu__list-item {
+    display: block;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 5px;
+}
+.header-menu__list-item:hover {
+    transition: 0.2s;
+    font-weight: 500;
+    color: vars.$dark-green;
+}
+.header-menu__checkbox:checked ~ .header-menu__burger {
+    height: 24px;
+}
+.header-menu__checkbox:checked ~ .header-menu__list {
+    top: 59px;
+    transform: translateY(0);
+}
+
+
+
+//фикс кнопки пожертвовать! 
+//фикс полосы 

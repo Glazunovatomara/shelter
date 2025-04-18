@@ -5,12 +5,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: vars.$light-green;
 }
 
 html {
   height: 100%;
   font-size: 62.5%; //10px
+  scroll-behavior: smooth;
 }
 
 body {
