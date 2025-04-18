@@ -4,14 +4,62 @@ const burger = document.querySelector('.header-menu__list')
 const itemsBurger = document.querySelectorAll('.header-menu__list-item')
 
 function closeBurger(event) {
-   let index = Array.from(itemsBurger).indexOf(event.target)
-   let num = itemsBurger.length - 1
-   if(index <= num && index!= -1) {
+    let index = Array.from(itemsBurger).indexOf(event.target)
+    let num = itemsBurger.length - 1
+    if(index <= num && index!= -1) {
     checkbox.checked = false;
-   }
+    }
+    if(index === 4) {
+      showPopup()
+    }
 }
 
 burger.addEventListener('click', closeBurger); 
+
+//popup
+const btnPopup = document.getElementById('btn-hero');
+const popupOverlay = document.getElementById('popup-overlay');
+const popup = document.getElementById('popup');
+const sbp = document.getElementById('sbp');
+const cardNum = document.getElementById('card-num');
+const copySbp = document.getElementById('copy_1');
+const copyCard = document.getElementById('copy_2');
+const navPopup = document.getElementById('nav-popup');
+const menuPopup = document.getElementById('menu-popup');
+const close = document.getElementById('close');
+
+function showPopup() {
+    popupOverlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+function hidePopup() {
+  popupOverlay.style.display = 'none';
+  document.body.style.overflow = 'scroll';
+}
+
+btnPopup.addEventListener('click',showPopup);
+navPopup.addEventListener('click',showPopup);
+close.addEventListener('click', hidePopup);
+
+//copy
+copySbp.addEventListener('click', function() {
+    navigator.clipboard.writeText(sbp.textContent).then(function() {
+      console.log(sbp.textContent)
+    })
+    .catch((error) => {
+        alert `Произошла ошибка при копировании текста: , ${error}`
+    })
+}) 
+copyCard.addEventListener('click', function() {
+  navigator.clipboard.writeText(cardNum.textContent).then(function() {
+    console.log(cardNum.textContent)
+  })
+  .catch((error) => {
+      alert `Произошла ошибка при копировании текста: , ${error}`
+  })
+})
+
+//
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".help-card");

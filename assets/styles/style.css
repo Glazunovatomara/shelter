@@ -625,6 +625,84 @@ li {
   transform: translateY(0);
 }
 
+#popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5019607843);
+  z-index: 101;
+}
+
+.popup {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  padding: 54px 66px 58px;
+  max-width: 637px;
+  width: 100%;
+  gap: 40px;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 36px;
+  background-color: #f1f1ba;
+  border: none;
+  border-radius: 10px;
+}
+@media screen and (max-width: 665px) {
+  .popup {
+    width: 92%;
+    padding: 50px 28px;
+  }
+}
+@media screen and (max-width: 481px) {
+  .popup {
+    font-size: 1.6em;
+    line-height: 26px;
+    gap: 26px;
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 17px;
+  right: 19px;
+  content: url(/assets/icons/close.svg);
+  cursor: pointer;
+}
+@media screen and (max-width: 481px) {
+  .popup-close {
+    max-width: 25px;
+  }
+}
+
+.popup-close:hover {
+  transform: scale(1.05);
+  transition-duration: 0.25s;
+}
+
+.popup-text__decor {
+  font-weight: 700;
+}
+
+#copy_1,
+#copy_2 {
+  content: url("/assets/icons/copy.svg");
+  padding-left: 12px;
+  cursor: pointer;
+}
+@media screen and (max-width: 481px) {
+  #copy_1,
+  #copy_2 {
+    width: 24px;
+  }
+}
+
 .section-hero > div {
   position: relative;
   display: flex;
@@ -637,7 +715,6 @@ li {
 }
 @media screen and (max-width: 768px) {
   .section-hero > div {
-    padding-top: 72px;
     padding-bottom: 66px;
   }
 }
