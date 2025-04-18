@@ -23,7 +23,7 @@
                     <li class="header-nav__list-item"><a href="#help">Как помочь</a></li>
                     <li class="header-nav__list-item"><a href="#volunteering">волонтерство</a></li>
                     <li class="header-nav__list-item"><a href="#contacts">контакты</a></li>
-                    <li class="header-nav__list-item"><a href="#contacts">пожертвовать</a></li>
+                    <li class="header-nav__list-item"><a href="#" id="nav-popup">пожертвовать</a></li>
                 </ul>
             </nav>
             <div class="header-menu">
@@ -34,7 +34,7 @@
                     <li><a href="#help" class="header-menu__list-item">Как помочь</a></li>
                     <li><a href="#volunteering" class="header-menu__list-item">волонтерство</a></li>
                     <li><a href="#contacts" class="header-menu__list-item">контакты</a></li>
-                    <li><a href="#contacts" class="header-menu__list-item">пожертвовать</a></li>
+                    <li><a href="#" class="header-menu__list-item" id="menu-popup">пожертвовать</a></li>
                 </ul>
             </div>
         </div>
@@ -48,10 +48,23 @@
                     <p class="section-hero__info-text">В нашем приюте живут пожилые и пострадавшие собаки.
                         <br>Мы даём им лечение, тепло и чувство безопасности.
                         <br>Многим — больше десяти лет. Но есть и те, кто молод и готов бежать навстречу новому дому.</p>
-                    <button class="section-hero__info-btn">пожертвовать</button>
+                    <button class="section-hero__info-btn" id="btn-hero">пожертвовать</button>
                 </div>
             </div>
         </sectoin>
+        <div id="popup-overlay">
+            <div class="popup" id="popup">  
+                <span class="popup-close" id="close"></span>
+                <p class="popup-text">Спасибо, что решили помочь! Ваш вклад - это корм, лечение и тепло для стареньких собак.</p>
+                <p class="popup-text">Скопируйте реквизиты - любая сумма имеет значение.</p>
+                <p class="popup-text">СБП: <span class="popup-text__decor" id="sbp">89062153045</span><span id="copy_1"></span><br>
+                    КАРТА СБЕР: <span class="popup-text__decor" id="card-num">5228 6005 2983 6159</span><span id="copy_2"></span><br>
+                    <span class="popup-text__decor">(Мария Евгеньевна К.)</span> 
+                </p>
+                <p class="popup-text">Спасибо, что не прошли мимо.<br>
+                  Вместе мы можем больше.</p>
+            </div>
+        </div>
         <!-- заканчиваeтся  блок Тамара-->
         <!-- блок Ирина -->
         <section class="section-help" id="help">
