@@ -397,17 +397,15 @@ a {
   }
 }
 
-.btn, .section-hero__info-btn {
+.btn, .section-hero__info-btn, .header-nav__list > li:nth-last-child(1) {
   max-width: 172px;
   width: 100%;
-  margin-top: 88px;
   padding: 12px 17px;
   border: none;
   border-radius: 25px;
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.5em;
   background-color: #FF4F4F;
   cursor: pointer;
 }
@@ -442,6 +440,7 @@ a {
     top: 0;
     padding-bottom: 4px;
     background-color: #FCFCEB;
+    z-index: 100;
   }
 }
 
@@ -513,6 +512,15 @@ a {
 }
 .header-nav__list-item a:active {
   font-weight: 500;
+}
+.header-nav__list > li:nth-last-child(1):hover {
+  transform: scale(1.02);
+  transition-duration: 0.25s;
+  background-color: #ff2020;
+}
+.header-nav__list > li:nth-last-child(1) a {
+  color: #fff;
+  font-weight: 700;
 }
 
 .header-nav::after,
@@ -671,6 +679,10 @@ li {
     font-size: 1.6em;
     line-height: 26px;
   }
+}
+.section-hero__info-btn {
+  margin-top: 88px;
+  font-size: 1.5em;
 }
 @media screen and (max-width: 1136px) {
   .section-hero__info-btn {
