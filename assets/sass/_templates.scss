@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: vars.$light-green;
+  //background-color: vars.$light-green;
 }
 
 html {
@@ -43,7 +43,7 @@ a {
     line-height: 32px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 400px) {
     font-size: 2.4em;
     line-height: 28px;
   }
@@ -60,10 +60,24 @@ a {
     line-height: 28px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 400px) {
     font-size: 1.8em;
     line-height: 22px;
   }
+}
+.btn {
+  max-width: 172px;
+    width: 100%;
+    margin-top: 88px;
+    padding: 12px 17px;
+    border: none;
+    border-radius: 25px;
+    color: vars.$white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5em;
+    background-color: vars.$pink;
+    cursor: pointer;
 }
 //================Конец Заголовки==================//
 
