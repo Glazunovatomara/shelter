@@ -715,7 +715,6 @@ li {
 }
 @media screen and (max-width: 768px) {
   .section-hero > div {
-    padding-top: 72px;
     padding-bottom: 66px;
   }
 }
