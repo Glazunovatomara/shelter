@@ -1,0 +1,84 @@
+@use "../fonts";
+@use "../templates";
+@use "../vars";
+
+.footer {
+    background-color: vars.$dark-green;
+    font-family: "Montserrat";
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    &__logo {
+        margin-right: 25%;
+    }
+
+    &__contacts {
+        text-align: center;
+
+        p {
+        margin: 5px 0;
+        }
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        &-link {
+            display: flex;
+            gap: 10px;
+    }
+
+        &-icon {
+            height: 24px;
+            width: 24px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        flex-direction: column;
+
+        &__logo {
+            margin: 0 0 20px 0;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px;
+        font-size: 13px;
+
+        &__social-icon {
+            height: 20px;
+            width: 20px;
+
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        font-size: 12px;
+
+        &__logo {
+            display: none;
+        }
+
+        &__social {
+            gap: 8px;
+
+            &-icon {
+                height: 18px;
+                width: 18px;
+
+            }
+        }
+    }
+}
