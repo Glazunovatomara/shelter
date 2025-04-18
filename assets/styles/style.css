@@ -409,7 +409,6 @@ a {
 }
 
 .section-help {
-  min-height: 100vh;
   padding: 100px 0;
   background-color: #fcfceb;
 }
@@ -428,6 +427,16 @@ a {
   margin: 0 auto;
   width: 1200px;
   margin-bottom: 40px;
+}
+@media screen and (max-width: 1250px) {
+  .section-help__cards {
+    width: 1000px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .section-help__cards {
+    width: 700px;
+  }
 }
 @media screen and (max-width: 768px) {
   .section-help__cards {
@@ -506,6 +515,16 @@ a {
   width: 1197px;
   margin: 0 auto;
   display: none;
+}
+@media screen and (max-width: 1250px) {
+  .help-content {
+    width: 1000px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .help-content {
+    width: 700px;
+  }
 }
 @media screen and (max-width: 768px) {
   .help-content {
