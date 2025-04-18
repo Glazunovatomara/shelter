@@ -1,16 +1,15 @@
-
 // ================ОБЩИЕ СТИЛИ=================//
 @use "vars";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  //background-color: vars.$light-green;
 }
 
 html {
   height: 100%;
   font-size: 62.5%; //10px
+  scroll-behavior: smooth;
 }
 
 body {
@@ -95,8 +94,8 @@ a {
 %container {
   max-width: 1440px;
   min-width: 320px;
-  margin: 0 auto;
   padding: 0 120px;
+  margin: 0 auto;
 
   @media screen and (max-width: 767px) {
     padding: 0 40px;
