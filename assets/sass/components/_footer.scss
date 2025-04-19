@@ -5,7 +5,8 @@
 .footer {
     background-color: vars.$dark-green;
     font-family: "Montserrat";
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: light;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,8 +53,9 @@
 
 @media (max-width: 768px) {
     .footer {
-        padding: 15px;
         font-size: 13px;
+        font-weight: light;
+        padding: 15px;
 
         &__social-icon {
             height: 20px;
@@ -65,7 +67,8 @@
 
 @media (max-width: 480px) {
     .footer {
-        font-size: 12px;
+        font-size: 13px;
+        font-weight: light;
 
         &__logo {
             display: none;

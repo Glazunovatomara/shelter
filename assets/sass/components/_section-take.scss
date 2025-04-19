@@ -37,7 +37,7 @@
     &__slider-image {
         width: 30%;
         aspect-ratio: 1 / 1;
-        border-radius: 10px;
+        border-radius: 5px;
         object-fit: cover;
         opacity: 0.8;
         transition: all 0.3s ease;
@@ -78,7 +78,9 @@
       }
 
     &__description {
-        font-size: 16px;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 36px;
         margin-top: 20px;
     }
 }
@@ -112,6 +114,7 @@
 
         &__description {
             font-size: 18px;
+            font-weight: normal;
         }
     }
 }
@@ -174,7 +177,7 @@
             }
 
         &__description {
-            font-size: 16px;
+            font-size: 18px;
             margin-top: 15px;
         }
     }
@@ -187,6 +190,8 @@
     }
 
     .section-take__description {
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: medium;
+        line-height: 26px;
     }
 }
