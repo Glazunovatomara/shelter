@@ -423,7 +423,10 @@ a {
 }
 
 .header {
+  position: fixed;
+  width: 100%;
   background-color: #FCFCEB;
+  z-index: 100;
 }
 
 .header > div {
@@ -436,11 +439,9 @@ a {
 }
 @media (max-width: 1160px) {
   .header > div {
-    position: fixed;
     top: 0;
     padding-bottom: 4px;
     background-color: #FCFCEB;
-    z-index: 100;
   }
 }
 
