@@ -690,6 +690,11 @@ li {
   font-weight: 700;
 }
 
+#sbp,
+#card-num {
+  cursor: pointer;
+}
+
 #copy_1,
 #copy_2 {
   content: url("/assets/icons/copy.svg");
