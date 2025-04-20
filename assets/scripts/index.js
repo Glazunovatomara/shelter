@@ -51,13 +51,30 @@ copySbp.addEventListener('click', function() {
     })
 }) 
 copyCard.addEventListener('click', function() {
-  navigator.clipboard.writeText(cardNum.textContent).then(function() {
-    console.log(cardNum.textContent)
-  })
-  .catch((error) => {
-      alert `Произошла ошибка при копировании текста: , ${error}`
-  })
+    navigator.clipboard.writeText(cardNum.textContent).then(function() {
+      console.log(cardNum.textContent)
+    })
+    .catch((error) => {
+        alert `Произошла ошибка при копировании текста: , ${error}`
+    })
 })
+sbp.addEventListener('click', function() {
+    navigator.clipboard.writeText(sbp.textContent).then(function() {
+        console.log(sbp.textContent)
+    })
+    .catch((error) => {
+        alert `Произошла ошибка при копировании текста: , ${error}`
+    })
+})
+cardNum.addEventListener('click', function() {
+    navigator.clipboard.writeText(cardNum.textContent).then(function() {
+      console.log(cardNum.textContent)
+    })
+    .catch ((error) => {
+        alert `Произошла ошибка при копировании текста: , ${error}`
+    })
+})
+
 
 //
 

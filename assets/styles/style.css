@@ -423,7 +423,10 @@ a {
 }
 
 .header {
+  position: fixed;
+  width: 100%;
   background-color: #FCFCEB;
+  z-index: 100;
 }
 
 .header > div {
@@ -436,11 +439,9 @@ a {
 }
 @media (max-width: 1160px) {
   .header > div {
-    position: fixed;
     top: 0;
     padding-bottom: 4px;
     background-color: #FCFCEB;
-    z-index: 100;
   }
 }
 
@@ -690,6 +691,11 @@ li {
   font-weight: 700;
 }
 
+#sbp,
+#card-num {
+  cursor: pointer;
+}
+
 #copy_1,
 #copy_2 {
   content: url("/assets/icons/copy.svg");
@@ -707,7 +713,7 @@ li {
   position: relative;
   display: flex;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 188px;
   padding-bottom: 100px;
   justify-content: space-between;
   gap: 10px;
@@ -715,6 +721,7 @@ li {
 }
 @media screen and (max-width: 768px) {
   .section-hero > div {
+    padding-top: 131px;
     padding-bottom: 66px;
   }
 }
