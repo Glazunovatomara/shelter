@@ -1,5 +1,4 @@
 @use "../fonts";
-@use "../templates";
 @use "../vars";
 
 .section-volunteering {
@@ -11,6 +10,7 @@
     flex-wrap: wrap;
     gap: 60px;
     padding: 40px 20px;
+    padding-bottom: 50px;
 
     &__slider {
         width: fit-content;
@@ -35,15 +35,22 @@
 
             &--left {
                 left: -60px;
+
+                img {
+                    height: 40px;
+                    width: 40px;
+                    transform: rotate(-90deg);
+                }
             }
 
             &--right {
                 right: -60px;
-            }
 
-            img {
-                height: 40px;
-                width: 40px;
+                img {
+                    height: 40px;
+                    width: 40px;
+                    transform: rotate(90deg);
+                }
             }
         }
     }
@@ -58,13 +65,13 @@
         font-size: 20px;
         font-weight: normal;
         line-height: 36px;
-        margin-left: 10%;
+        margin-left: 15%;
 
-        h1 {
+        &__title {
             text-align: center;
             font-size: 32px;
-            font-weight: medium;
-            margin-bottom: 20px;
+            font-weight: 400;
+            margin-bottom: 10px;
         }
     }
 
@@ -78,7 +85,7 @@
             left: 0;
             top: 6px;
             color: #628152;
-            font-size: 20px;
+            font-size: 15px;
             line-height: 1;
         }
     }
@@ -114,7 +121,7 @@
         &__text-block {
             max-width: 90%;
 
-            h1 {
+            h2 {
                 font-size: 22px;
             }
         }
@@ -160,7 +167,7 @@
             margin-left: 0;
             max-width: 90%;
 
-            h1 {
+            h2 {
                 font-size: 20px;
             }
         }
@@ -185,9 +192,8 @@
         max-width: 90vw;
     }
 
-    .section-volunteering__text-block h1 {
+    .section-volunteering__text-block h2 {
         font-size: 18px;
-        font-weight: medium;
     }
 
     &__list {

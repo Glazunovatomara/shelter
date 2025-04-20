@@ -113,4 +113,19 @@ document.addEventListener("DOMContentLoaded", () => {
     adaptSlider2();
 });
 
+// Footer кнопка
+
+function copyToClipboard(id) {
+    const el = document.getElementById(id);
+    const text = el.textContent || el.innerText;
+
+    navigator.clipboard.writeText(text).catch(err => {
+        console.error('Ошибка копирования', err);
+    });
+}
+
+
+
+
+
 

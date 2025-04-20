@@ -27,10 +27,10 @@
                 <img src="/assets/images/section-volunteering_img_1.jpg" class="section-volunteering__slider-image" id="section-volunteering__slider-image" alt="slide" />
 
                 <button class="section-volunteering__slider-button section-volunteering__slider-button--left" id="slider_1_button_prev">
-                    <img src="/assets/icons/nav_left.png" alt="prev">
+                    <img src="/assets/icons/paw.svg" alt="prev">
                 </button>
                 <button class="section-volunteering__slider-button section-volunteering__slider-button--right" id="slider_1_button_next">
-                    <img src="/assets/icons/nav_right.png" alt="next">
+                    <img src="/assets/icons/paw.svg" alt="next">
                 </button>
             </div>
 
@@ -45,7 +45,7 @@
             </div>
 
             <div class="section-volunteering__text-block">
-                <h1 class="section-volunteering__title">ШАГИ К ВОЛОНТЁРСТВУ:</h1>
+                <h2 class="section-volunteering__title">ШАГИ К ВОЛОНТЁРСТВУ:</h2>
                 <ul class="section-volunteering__list">
                     <li class="section-volunteering__list-item">
                     <h3 class="section-volunteering__list-item-title">Напиши нам</h3>
@@ -68,10 +68,10 @@
         </section>
 
         <section class="section-take" id="take">
-            <h1 class="section-take__title">ВЗЯТЬ СОБАКУ ДОМОЙ</h1>
+            <h2 class="section-take__title">ВЗЯТЬ СОБАКУ ДОМОЙ</h2>
             <div class="section-take__slider">
                 <button class="section-take__slider-button section-take__slider-button--left" id="slider_2_button_prev">
-                    <img src="/assets/icons/nav_left.png" alt="prev" />
+                    <img src="/assets/icons/paw.svg" alt="prev" />
                 </button>
 
                 <div class="section-take__slider-window">
@@ -88,7 +88,7 @@
                 </div>
 
                 <button class="section-take__slider-button section-take__slider-button--right" id="slider_2_button_next">
-                    <img src="/assets/icons/nav_right.png" alt="next" />
+                    <img src="/assets/icons/paw.svg" alt="next" />
                 </button>
             </div>
 
@@ -111,10 +111,15 @@
         <img src="/assets/icons/footer_logo.svg" class="footer__logo" alt="logo" />
         <div class="footer__contacts">
             <p class="footer__contact">
-                КОНТАКТЫ: Тел.: <a href="tel:+79062153045">+7 (906) 215 30 45</a>
+                КОНТАКТЫ: Тел.: <a href="tel:+79062153045" id="phone">+7 (906) 215 30 45</a>
+                <button class="copy_button" onclick="copyToClipboard('phone')" aria-label="Copy phone number"><img src="/assets/icons/copy_button.svg" alt="copy" />
+                </button>
+            </p>
             </p>
             <p class="footer__contact">
-                E-mail: <a href="mailto:priyut.kosma@mail.ru">priyut.kosma@mail.ru</a>
+                E-mail: <a href="mailto:priyut.kosma@mail.ru" id="email">priyut.kosma@mail.ru</a>
+                <button class="copy_Button" onclick="copyToClipboard('email')" aria-label="Copy email address"><img src="/assets/icons/copy_button.svg" alt="copy" />
+                </button>
             </p>
         </div>
 

@@ -1,5 +1,4 @@
 @use "../fonts";
-@use "../templates";
 @use "../vars";
 
 .section-take {
@@ -8,6 +7,10 @@
     font-family: "Montserrat";
     text-align: center;
     padding: 3% 0;
+
+    &__title {
+        font-weight: 400;
+    }
 
     &__slider {
         width: 100%;
@@ -61,27 +64,34 @@
 
         &--left {
             left: 3%;
+
+            img {
+                height: 40px;
+                width: 40px;
+                transform: rotate(-90deg);
+            }
         }
 
         &--right {
             right: 3%;
         }
 
-        img {
-            height: 40px;
-            width: 40px;
+            img {
+                height: 40px;
+                width: 40px;
+                transform: rotate(90deg);
+            }
         }
     }
 
     &__dots {
         display: none;
-      }
+    }
 
     &__description {
         font-size: 20px;
-        font-weight: normal;
         line-height: 36px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
 }
 
@@ -114,7 +124,6 @@
 
         &__description {
             font-size: 18px;
-            font-weight: normal;
         }
     }
 }
@@ -191,7 +200,6 @@
 
     .section-take__description {
         font-size: 16px;
-        font-weight: medium;
         line-height: 26px;
     }
 }
