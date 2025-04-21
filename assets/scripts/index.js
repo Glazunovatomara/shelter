@@ -1,7 +1,4 @@
-
 import '../sass/index.scss';
-
-// Black Jade
 
 // header
 const checkbox = document.querySelector('.header-menu__checkbox')
@@ -80,7 +77,6 @@ cardNum.addEventListener('click', function() {
     })
 })
 
-
 //
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -156,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Слайдер section-volunteering
+// Black Jade Слайдер section-volunteering
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -211,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
     adaptSlider1();
     updateSlider1();
 
-    // Слайдер section-take
+    // Black Jade Слайдер section-take
 
     const track2     = document.getElementById("slides");
     const prevBtn2   = document.getElementById("slider_2_button_prev");
@@ -266,9 +262,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", adaptSlider2);
     adaptSlider2();
 });
-<<<<<<< HEAD
 
-// Footer кнопка
+// Black Jade Footer кнопка
 
 function copyToClipboard(id) {
     const el = document.getElementById(id);
@@ -284,5 +279,3 @@ function copyToClipboard(id) {
 
 
 
-=======
->>>>>>> origin/main
