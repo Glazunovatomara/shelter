@@ -6,18 +6,217 @@
     <title>Приют в косме</title>
     <link rel="shortcut icon" href="./assets/icons/logo.svg" type="image/svg" />
     <link rel="stylesheet" href="./assets/styles/style.css" />
-  </head>
-  <body>
+</head>
+<body>
     <!--блок Тамара  -->
-    <header class="header"></header>
+    <header class="header">
+        <div>
+            <div class="header-logo">
+                <img src="./assets/icons/logo.svg" alt="лого" class="header-logo__img">
+                <p class="header-logo__title">Приют в косме
+                    <span class="header-logo__subtitle">КАЛИНИНГРАДСКАЯ ОБЛАСТЬ</span>
+                </p>
+            </div>
+            <nav class="header-nav">
+                <ul class="header-nav__list">
+                    <li class="header-nav__list-item"> <a href="#hero"> О приюте</a></li>
+                    <li class="header-nav__list-item"><a href="#help">Как помочь</a></li>
+                    <li class="header-nav__list-item"><a href="#volunteering">волонтерство</a></li>
+                    <li class="header-nav__list-item"><a href="#contacts">контакты</a></li>
+                    <li class="header-nav__list-item"><a href="#" id="nav-popup">пожертвовать</a></li>
+                </ul>
+            </nav>
+            <div class="header-menu">
+                <input type="checkbox" id="burger-checkbox" class="header-menu__checkbox">
+                <label for="burger-checkbox" class="header-menu__burger"></label>
+                <ul class="header-menu__list">
+                    <li> <a href="#hero" class="header-menu__list-item"> О приюте</a></li>
+                    <li><a href="#help" class="header-menu__list-item">Как помочь</a></li>
+                    <li><a href="#volunteering" class="header-menu__list-item">волонтерство</a></li>
+                    <li><a href="#contacts" class="header-menu__list-item">контакты</a></li>
+                    <li><a href="#" class="header-menu__list-item" id="menu-popup">пожертвовать</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
     <main>
-      <sectoin class="section-hero" id="hero"></sectoin>
-      <!-- заканчиваeтся  блок Тамара-->
-
-      <!-- блок Ирина -->
-     <section class="section-help" id="help">
+        <sectoin class="section-hero" id="hero">
+            <div>
+                <div class="section-hero__info">
+                    <h1 class="section-hero__title page-title">Каждый заслуживает любви, Даже если ему 15 лет и он хромает</h1>
+                    <img class="section-hero__info-img" src="./assets/images/section-hero_img.jpg" alt="собака">
+                    <p class="section-hero__info-text">В нашем приюте живут пожилые и пострадавшие собаки.
+                        <br>Мы даём им лечение, тепло и чувство безопасности.
+                        <br>Многим — больше десяти лет. Но есть и те, кто молод и готов бежать навстречу новому дому.</p>
+                    <button class="section-hero__info-btn" id="btn-hero">пожертвовать</button>
+                </div>
+            </div>
+        </sectoin>
+        <div id="popup-overlay">
+            <div class="popup" id="popup">  
+                <span class="popup-close" id="close"></span>
+                <p class="popup-text">Спасибо, что решили помочь! Ваш вклад - это корм, лечение и тепло для стареньких собак.</p>
+                <p class="popup-text">Скопируйте реквизиты - любая сумма имеет значение.</p>
+                <p class="popup-text">СБП: <span class="popup-text__decor" id="sbp">89062153045</span><span id="copy_1"></span><br>
+                    КАРТА СБЕР: <span class="popup-text__decor" id="card-num">5228 6005 2983 6159</span><span id="copy_2"></span><br>
+                    <span class="popup-text__decor">(Мария Евгеньевна К.)</span> 
+                </p>
+                <p class="popup-text">Спасибо, что не прошли мимо.<br>
+                  Вместе мы можем больше.</p>
+            </div>
+        </div>
+        <!-- заканчиваeтся  блок Тамара-->
+        <!-- блок Ирина -->
+        <section class="section-help" id="help">
         <div class="section-help__container">
-          <h2 class="section-help__title">Как можно помочь приюту</h2>
+            <h2 class="section-help__title">Как можно помочь приюту</h2>
+
+            <!-- Desktop Cards -->
+            <div class="section-help__cards">
+            <div class="help-card" data-index="0">
+                <div class="help-card__icon">
+                <img src="assets/icons/money.svg" alt="Финансы" />
+              </div>
+              <div class="help-card__title">финансы</div>
+            </div>
+            <div class="help-card" data-index="1">
+              <div class="help-card__icon">
+                <img src="assets/icons/pet_food.svg" alt="корм" />
+              </div>
+              <div class="help-card__title">корм</div>
+            </div>
+            <div class="help-card" data-index="2">
+              <div class="help-card__icon">
+                <img src="assets/icons/drugs.svg" alt="лекарства" />
+              </div>
+              <div class="help-card__title">лекарства</div>
+            </div>
+            <div class="help-card" data-index="3">
+              <div class="help-card__icon">
+                <img src="assets/icons/volunteer.svg" alt="волонтёры" />
+              </div>
+              <div class="help-card__title">волонтёрство</div>
+            </div>
+            <div class="help-card" data-index="4">
+              <div class="help-card__icon">
+                <img src="assets/icons/home.svg" alt="приютить" />
+              </div>
+              <div class="help-card__title">приютить</div>
+            </div>
+          </div>
+
+          <!-- Mobile View -->
+          <div class="mobile-help-view">
+            <div class="mobile-icon">
+              <img src="assets/icons/money.svg" alt="финансы" />
+            </div>
+          </div>
+
+          <!-- Content (Visible on both views) -->
+          <div class="section-help__content">
+            <div class="help-content help-content--active" data-index="0">
+              <p>
+                Приют живёт только благодаря неравнодушным сердцам. Больше всего
+                нам нужен корм — это ежедневная забота о стареньких хвостиках.
+                Также важна помощь с лечением, поездками к ветеринарам и
+                строительством тёплых вольеров. Каждый ваш отклик — это чья-то
+                уютная будка, полная миска и шанс на жизнь без боли.
+              </p>
+              <div class="help-content__donation">
+                <h4 class="subtitle">Пожертвовать:</h4>
+                <span>СБП: <b>89062153045</b></span
+                ><br />
+                <span> Карта СБЕР:<b> 5228 6005 2983 6159</b></span>
+                <br />
+                <span>(Мария Евгеньевна К.)</span>
+                <p>Даже 100 рублей - важный вклад. Спасибо, что вы рядом.</p>
+              </div>
+            </div>
+            <div class="help-content" data-index="1">
+              <p>
+                Каждый день наши хвостики съедают 40 кг. сухого и много влажного
+                корма.
+              </p>
+              <p>
+                Мы будем благодарны за любые запасы — мешки, упаковки, остатки
+                из дома. Главное — чтобы было чем кормить завтра.
+              </p>
+              <h4 class="subtitle">Нам нужны:</h4>
+              <ul>
+                <li>Сухой корм</li>
+                <li>Влажный корм (консервы)</li>
+                <li>Лакомства для старичков</li>
+              </ul>
+            </div>
+            <div class="help-content" data-index="2">
+              <p>
+                Большинство наших подопечных — с хроническими болезнями. Мы
+                лечим, капаем, обрабатываем от клещей.
+              </p>
+              <p>
+                Сейчас особенно срочно нужны препараты от паразитов — сезон
+                активен, и одно укушенное животное может не выжить.
+              </p>
+              <h4 class="subtitle">Нужны препараты:</h4>
+              <ul>
+                <li>Бровекто, Симпарика</li>
+                <li>Гепатопротекторы</li>
+                <li>Сердечные препараты</li>
+                <li>Вакцины</li>
+                <li>и т.д.</li>
+              </ul>
+              <p>
+                Если вы готовы купить или передать лекарства — свяжитесь с нами.
+                Это спасает жизни буквально.
+              </p>
+            </div>
+            <div class="help-content" data-index="3">
+              <p>
+                Нам всегда нужны руки и добрые сердца. Вы можете приехать:
+                погулять с собаками, помочь с уборкой, строительством,
+                логистикой, фото или сторис. Даже 2–3 часа в неделю — уже
+                огромная поддержка.
+              </p>
+              <h4 class="subtitle">Чем можно помочь:</h4>
+              <ul>
+                <li>Выгул собак</li>
+                <li>Отвезти собаку к ветеринару</li>
+                <li>Помощь в стройке вольеров</li>
+                <li>Уборка и уход</li>
+                <li>Фото, видео, соцсети</li>
+                <li>Сбор кормов/лекарств в городе</li>
+              </ul>
+            </div>
+            <div class="help-content" data-index="4">
+              <p>
+                Если вы думаете: «Я не справлюсь» — просто напишите или
+                позвоните нам. Мы поможем выбрать хвостика под ваш ритм жизни.
+              </p>
+              <p>
+                У нас есть старички, которым нужно просто тёплое место и пару
+                ласковых слов в день. А есть и активные молодые, мечтающие о
+                пробежке рядом с человеком.
+              </p>
+              <h4 class="subtitle">Все собаки:</h4>
+              <ul>
+                <li>Привиты</li>
+                <li>Стерилизованы</li>
+                <li>Под наблюдением ветеринара</li>
+                <li>С разными характерами — подберём вам друга</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pagination for Mobile -->
+          <div class="mobile-pagination">
+            <div class="pagination-dot active" data-index="0"></div>
+            <div class="pagination-dot" data-index="1"></div>
+            <div class="pagination-dot" data-index="2"></div>
+            <div class="pagination-dot" data-index="3"></div>
+            <div class="pagination-dot" data-index="4"></div>
+          </div>
+        </div>
+      </section>
       <!-- заканчиваeтся блок Ирина-->
 
         <!-- блок Black Jade-->
@@ -105,6 +304,7 @@
 
             <p class="section-take__description">У каждого из них своя история. Но всем им нужно одно — человек, рядом с которым они снова станут счастливыми.</p>
         </section>
+
     </main>
 
     <footer class="footer" id="contacts">
@@ -133,5 +333,5 @@
         <!-- заканчиваeтся блок Black Jade-->
 
     <script src="./assets/scripts/index.js"></script>
-</body>
+  </body>
 </html>

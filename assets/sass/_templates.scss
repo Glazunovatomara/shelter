@@ -1,4 +1,3 @@
-
 // ================ОБЩИЕ СТИЛИ=================//
 @use "vars";
 * {
@@ -43,7 +42,7 @@ a {
     line-height: 32px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 400px) {
     font-size: 2.4em;
     line-height: 28px;
   }
@@ -60,10 +59,22 @@ a {
     line-height: 28px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 400px) {
     font-size: 1.8em;
     line-height: 22px;
   }
+}
+.btn {
+  max-width: 172px;
+    width: 100%;
+    padding: 12px 17px;
+    border: none;
+    border-radius: 25px;
+    color: vars.$white;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: vars.$pink;
+    cursor: pointer;
 }
 //================Конец Заголовки==================//
 
@@ -82,6 +93,7 @@ a {
   max-width: 1440px;
   min-width: 320px;
   padding: 0 120px;
+  margin: 0 auto;
 
   @media screen and (max-width: 767px) {
     padding: 0 40px;
