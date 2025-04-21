@@ -40,7 +40,7 @@
                 img {
                     height: 47px;
                     width: 39px;
-                    transform: rotate(-90deg);
+                    transform: rotate(-90deg) !important;
                 }
             }
 
@@ -50,7 +50,7 @@
                 img {
                     height: 47px;
                     width: 39px;
-                    transform: rotate(90deg);
+                    transform: rotate(90deg) !important;
                 }
             }
         }
