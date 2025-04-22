@@ -16,23 +16,23 @@
     &__contacts {
         text-align: center;
 
-    p {
-        font-size: 20px;
-        line-height: 25px;
-        margin: 5px 0;
+        p {
+            font-size: 20px;
+            line-height: 25px;
+            margin: 5px 0;
 
-        a {
-            cursor: pointer;
-        }
+            a {
+                cursor: pointer;
+            }
 
-        .copy_button {
-            height: 15px;
-            width: 13.13px;
-            background-color: vars.$dark-green;
-            cursor: pointer;
+            .copy_button {
+                height: 15px;
+                width: 13.13px;
+                background-color: vars.$dark-green;
+                cursor: pointer;
+            }
         }
     }
-}
 
     &__social {
         display: flex;
@@ -105,5 +105,6 @@
         }
     }
 }
+
 
 

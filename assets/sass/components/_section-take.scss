@@ -2,7 +2,7 @@
 @use "../vars";
 
 .section-take {
-    background-color: vars.$green;
+    background-color: vars.$white;
     color: vars.$dark;
     font-family: "Montserrat";
     text-align: center;
@@ -38,16 +38,16 @@
         }
 
         &-image {
-            height: 285px;
+            height: auto;
             width: 200px;
             aspect-ratio: 1 / 1;
             object-fit: cover;
-            opacity: 0.8;
+            opacity: 0.9;
             transition: all 0.3s ease;
             flex-shrink: 0;
 
             &--active {
-                height: 354px;
+                height: auto;
                 width: 283px;
                 opacity: 1;
             }
@@ -103,6 +103,16 @@
         &__slider {
             padding: 0 40px;
 
+            &-image {
+                height: auto;
+                width: 90%;
+
+                &--active {
+                    height: auto;
+                    width: 90%;
+                }
+            }
+
             &-button {
                 &--left {
                     left: 20px;
@@ -138,6 +148,16 @@
 
         &__slider {
             padding: 0 40px;
+
+            &-image {
+                height: auto;
+                width: 80%;
+
+                &--active {
+                    height: auto;
+                    width: 80%;
+                }
+            }
 
             &-button {
                 &--left {
@@ -187,6 +207,7 @@
                 display: none;
 
                 &--active {
+                    width: 100%;
                     display: block;
                     opacity: 1;
                 }
@@ -225,3 +246,4 @@
         }
     }
 }
+
