@@ -1,4 +1,4 @@
-import '../sass/index.scss';
+
 
 // header
 const checkbox = document.querySelector('.header-menu__checkbox')
