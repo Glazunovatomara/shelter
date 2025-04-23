@@ -6,7 +6,7 @@
     color: vars.$dark;
     font-family: "Montserrat";
     text-align: center;
-    padding: 3% 0;
+    padding: 5% 0;
 
     &__title {
         font-size: 3.2em;
@@ -39,7 +39,7 @@
 
         &-image {
             height: auto;
-            width: 200px;
+            width: 190px;
             aspect-ratio: 1 / 1;
             object-fit: cover;
             opacity: 0.9;
@@ -48,7 +48,7 @@
 
             &--active {
                 height: auto;
-                width: 283px;
+                width: 280px;
                 opacity: 1;
             }
         }
@@ -62,7 +62,7 @@
             cursor: pointer;
 
             &--left {
-                left: 3%;
+                left: 30px;
 
                 img {
                     height: 47px;
@@ -72,7 +72,7 @@
             }
 
             &--right {
-                right: 3%;
+                right: 30px;
 
                 img {
                     height: 47px;
