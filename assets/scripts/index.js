@@ -207,6 +207,14 @@ document.addEventListener("DOMContentLoaded", () => {
     adaptSlider1();
     updateSlider1();
 
+    // Кнопка для мобильной версии
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('.section-volunteering__button').addEventListener('click', function () {
+        document.getElementById('popup-overlay').style.display = 'block';
+      });
+    });
+
     // Black Jade Слайдер section-take
 
     const track2     = document.getElementById("slides");

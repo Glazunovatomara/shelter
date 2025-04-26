@@ -1,5 +1,6 @@
 @use "../fonts";
 @use "../vars";
+@use "../templates";
 
 .section-volunteering {
     background-color: vars.$green;
@@ -7,8 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
-    padding: 40px 20px 50px;
+    padding: 4% 8% 7%;
 
     &__title {
         display: none;
@@ -18,10 +18,11 @@
         width: fit-content;
         position: relative;
         padding: 0 80px;
+        margin-top: 7%;
 
         &-image {
             height: auto;
-            width: 417px;
+            width: 420px;
             display: block;
         }
 
@@ -34,7 +35,7 @@
             cursor: pointer;
 
             &--left {
-                left: -60px;
+                left: 2%;
 
                 img {
                     height: 47px;
@@ -44,7 +45,7 @@
             }
 
             &--right {
-                right: -60px;
+                right: 2%;
 
                 img {
                     height: 47px;
@@ -64,35 +65,37 @@
         font-size: 20px;
         font-weight: normal;
         line-height: 36px;
-        margin-left: 15%;
 
         &__title {
             text-align: center;
-            font-size: 3.2em;
-            font-weight: 500;
-            line-height: 39px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 60px;
         }
     }
 
     &__list-item {
+        list-style: none;
+        padding-left: 0;
         margin-bottom: 90px;
 
-        &__title {
+        &__text {
             position: relative;
-            padding-left: 20px;
+            padding-left: 23px;
 
             &::before {
                 content: '•';
                 height: 14px;
                 width: 15px;
                 color: #628152;
+                border-radius: 50%;
                 position: absolute;
                 left: 0;
-                top: 6px;
+                top: 12px;
             }
         }
+    }
+
+    &__button {
+        display: none;
     }
 }
 
@@ -133,6 +136,10 @@
         &__text-block {
             max-width: 90%;
         }
+
+        &__button {
+            display: none;
+        }
     }
 }
 
@@ -154,26 +161,24 @@
         }
 
         &__text-block {
-            margin-left: 0;
-            max-width: 90%;
-
-            &__title {
-                font-size: 2.4em;
-                line-height: 28px;
-            }
+            max-width: 80%;
         }
 
-        &__list {
-            list-style: disc;
-            padding-left: 20px;
+        &__title {
+            font-size: 18px;
         }
 
         &__list-item {
+            list-style: disc inside;
             padding-left: 0;
+        }
 
             &::before {
                 content: none;
             }
+
+        &__button {
+            display: none;
         }
     }
 }
@@ -184,13 +189,13 @@
     .section-volunteering {
         flex-direction: column;
         gap: 30px;
-        padding: 20px;
+        padding: 30px;
 
         &__title {
             display: block;
             text-align: center;
-            font-size: 1.8em;
-            line-height: 22px;
+            font-size: 18px;
+            margin-bottom: 50px;
         }
 
         &__slider {
@@ -231,20 +236,34 @@
             display: none;
         }
 
-        &__list {
-            list-style: disc;
-            padding-left: 20px;
-        }
-
         &__list-item {
+            list-style: disc inside;
             padding-left: 0;
 
-            &::before {
-                content: none;
+            &__text {
+                font-size: 16px;
+            }
+
+                &::before {
+                    content: none;
+                }
+            }
+
+        &__button {
+            display: inline-block;
+            @extend .btn;
+            align-self: center;
+            font-size: 15px;
+
+            &:hover {
+                transform: scale(1.02);
+                transition-duration: 0.25s;
+                background-color: vars.$red;
             }
         }
     }
 }
+
 
 
 

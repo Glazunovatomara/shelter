@@ -1,6 +1,3 @@
-@use "../fonts";
-@use "../vars";
-
 .section-take {
     background-color: vars.$white;
     color: vars.$dark;
@@ -9,10 +6,8 @@
     padding: 5% 0;
 
     &__title {
-        font-size: 3.2em;
-        font-weight: 500;
-        line-height: 39px;
-        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 60px;
     }
 
     &__slider {
@@ -22,9 +17,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 8%;
 
         &-window {
-            width: 100%;
+            width: 60%;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -39,17 +35,13 @@
 
         &-image {
             height: auto;
-            width: 190px;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            opacity: 0.9;
+            max-width: 230px;
+            object-fit: contain;
             transition: all 0.3s ease;
-            flex-shrink: 0;
 
             &--active {
                 height: auto;
-                width: 280px;
-                opacity: 1;
+                max-width: 285px;
             }
         }
 
@@ -62,7 +54,7 @@
             cursor: pointer;
 
             &--left {
-                left: 30px;
+                left: 15%;
 
                 img {
                     height: 47px;
@@ -72,7 +64,7 @@
             }
 
             &--right {
-                right: 30px;
+                right: 15%;
 
                 img {
                     height: 47px;
@@ -89,8 +81,6 @@
 
     &__description {
         font-size: 20px;
-        line-height: 36px;
-        margin-top: 30px;
     }
 }
 
@@ -112,27 +102,6 @@
                     width: 90%;
                 }
             }
-
-            &-button {
-                &--left {
-                    left: 20px;
-                }
-
-                &--right {
-                    right: 20px;
-                }
-
-                img {
-                    height: 47px;
-                    width: 39px;
-                }
-            }
-        }
-
-        &__description {
-            font-size: 20px;
-            line-height: 36px;
-            margin-top: 30px;
         }
     }
 }
@@ -142,8 +111,7 @@
 @media screen and (max-width: 768px) {
     .section-take {
         &__title {
-            font-size: 2.4em;
-            line-height: 28px;
+            margin-bottom: 50px;
         }
 
         &__slider {
@@ -158,27 +126,6 @@
                     width: 80%;
                 }
             }
-
-            &-button {
-                &--left {
-                    left: 15px;
-                }
-
-                &--right {
-                    right: 15px;
-                }
-
-                img {
-                    height: 47px;
-                    width: 39px;
-                }
-            }
-        }
-
-        &__description {
-            font-size: 20px;
-            line-height: 36px;
-            margin-top: 30px;
         }
     }
 }
@@ -191,8 +138,7 @@
         text-align: center;
 
         &__title {
-            font-size: 1.8em;
-            line-height: 22px;
+            font-size: 18px;
         }
 
         &__slider {
@@ -209,7 +155,6 @@
                 &--active {
                     width: 100%;
                     display: block;
-                    opacity: 1;
                 }
             }
 
@@ -229,21 +174,18 @@
                 width: 10px;
                 background-color: vars.$green;
                 border-radius: 50%;
-                opacity: 0.8;
                 transition: opacity 0.3s;
 
                 &.active {
                     background-color: vars.$dark-green;
-                    opacity: 1;
                 }
             }
         }
 
         &__description {
             font-size: 16px;
-            line-height: 26px;
-            margin-top: 30px;
         }
     }
 }
+
 
