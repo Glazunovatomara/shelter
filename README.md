@@ -2,8 +2,8 @@
 
 <div align="center">
 <img alt="Static Badge" src="https://img.shields.io/badge/HTML-28%25-green">
-<img alt="Static Badge" src="https://img.shields.io/badge/SCSS-42.9%25-purple">
-<img alt="Static Badge" src="https://img.shields.io/badge/JavaScript-12.1%25-yellow">
+<img alt="Static Badge" src="https://img.shields.io/badge/SCSS-42.9%25-FF4F4F">
+<img alt="Static Badge" src="https://img.shields.io/badge/JavaScript-12.1%25-f1f1ba">
 </div>
 
 ---
