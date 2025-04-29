@@ -163,13 +163,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const dots1        = pagination1.getElementsByClassName("dot");
 
     const slider1Images = [
-        "/assets/images/section-volunteering_img_1.jpg",
-        "/assets/images/section-volunteering_img_2.jpg",
-        "/assets/images/section-volunteering_img_3.jpg",
-        "/assets/images/section-volunteering_img_4.jpg",
-        "/assets/images/section-volunteering_img_5.jpg",
-        "/assets/images/section-volunteering_img_6.jpg",
-        "/assets/images/section-volunteering_img_7.jpg"
+        "./assets/images/section-volunteering_img_1.jpg",
+        "./assets/images/section-volunteering_img_2.jpg",
+        "./assets/images/section-volunteering_img_3.jpg",
+        "./assets/images/section-volunteering_img_4.jpg",
+        "./assets/images/section-volunteering_img_5.jpg",
+        "./assets/images/section-volunteering_img_6.jpg",
+        "./assets/images/section-volunteering_img_7.jpg"
     ];
     let index1 = 0;
 
@@ -209,67 +209,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Кнопка для мобильной версии
 
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelector('.section-volunteering__button').addEventListener('click', function () {
+    document.addEventListener('click', e => {
+      if (e.target.closest('.section-volunteering__button')) {
         document.getElementById('popup-overlay').style.display = 'block';
-      });
+      }
     });
 
     // Black Jade Слайдер section-take
 
-    const track2     = document.getElementById("slides");
-    const prevBtn2   = document.getElementById("slider_2_button_prev");
-    const nextBtn2   = document.getElementById("slider_2_button_next");
-    const pagination2= document.getElementById("section-take__dots");
-    const dots2      = pagination2.getElementsByClassName("dot");
-    const images2    = track2.getElementsByTagName("img");
+    const track2 = document.getElementById("slides");
+    const prevBtn2 = document.getElementById("slider_2_button_prev");
+    const nextBtn2 = document.getElementById("slider_2_button_next");
+    const dots2 = document.querySelectorAll("#section-take__dots .dot");
+    const images2 = track2.querySelectorAll("img");
+
     let index2 = 1;
 
     function updateSlider2() {
-        const step = 30 + 3;
-        const offset = step * (index2 - 1);
-        track2.style.transform = `translateX(-${offset}%)`;
+      const isMobile = window.innerWidth <= 400;
 
-        for (let i = 0; i < images2.length; i++) {
-            images2[i].classList.toggle("section-take__slider-image--active", i === index2);
+      if (isMobile) {
+        track2.style.transform = "none";
+        track2.style.display = "flex";
+        track2.style.justifyContent = "center";
+        track2.style.alignItems = "center";
+        track2.style.width = "100vw";
+        track2.style.height = "100vh";
 
-        if (window.innerWidth <= 768) {
-            images2[i].style.display = i === index2 ? "block" : "none";
-        }
-        }
+        images2.forEach((img, i) => {
+          if (i === index2) {
+            img.style.display = "block";
+            img.style.width = "100vw";
+            img.style.height = "100vh";
+            img.style.objectFit = "cover";
+          } else {
+            img.style.display = "none";
+          }
+        });
 
-        for (let i = 0; i < dots2.length; i++) {
-            dots2[i].classList.toggle("active", i === index2);
-        }
+        prevBtn2.style.display = "none";
+        nextBtn2.style.display = "none";
+        document.getElementById("section-take__dots").style.display = "flex";
+      } else {
+        const step = images2[0].clientWidth;
+        const offset = step * index2;
+        track2.style.transform = `translateX(calc(50% - ${step / 2}px - ${offset}px))`;
+        track2.style.display = "flex";
+        track2.style.width = "";
+        track2.style.height = "";
+
+        images2.forEach((img) => {
+          img.style.display = "block";
+          img.style.width = "";
+          img.style.height = "";
+          img.style.objectFit = "";
+        });
+
+        prevBtn2.style.display = "block";
+        nextBtn2.style.display = "block";
+        document.getElementById("section-take__dots").style.display = "none";
+      }
+
+      dots2.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index2);
+      });
     }
 
-    prevBtn2.onclick = () => {
-        index2 = (index2 - 1 + images2.length) % images2.length;
-        updateSlider2();
-    };
-    nextBtn2.onclick = () => {
-        index2 = (index2 + 1) % images2.length;
-        updateSlider2();
-    };
+    prevBtn2.addEventListener("click", () => {
+      index2 = (index2 - 1 + images2.length) % images2.length;
+      updateSlider2();
+    });
 
-    for (let i = 0; i < dots2.length; i++) {
-        dots2[i].addEventListener("click", () => {
+    nextBtn2.addEventListener("click", () => {
+      index2 = (index2 + 1) % images2.length;
+      updateSlider2();
+    });
+
+    dots2.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
         index2 = i;
         updateSlider2();
-        });
-    }
+      });
+    });
 
-    function adaptSlider2() {
-        const mobile = window.innerWidth <= 768;
-        prevBtn2.style.display     = mobile ? "none" : "block";
-        nextBtn2.style.display     = mobile ? "none" : "block";
-        pagination2.style.display  = mobile ? "flex" : "none";
-        updateSlider2();
-    }
+    window.addEventListener("resize", updateSlider2);
 
-    window.addEventListener("resize", adaptSlider2);
-    adaptSlider2();
-});
+    updateSlider2();
 
 // Black Jade Footer кнопка
 
