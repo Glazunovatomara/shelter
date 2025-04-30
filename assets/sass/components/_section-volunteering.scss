@@ -131,8 +131,6 @@
   }
 }
 
-/* ----- 1024px ----- */
-
 @media screen and (max-width: 1024px) {
   .section-volunteering {
     flex-direction: row;
@@ -140,7 +138,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 40px;
-    padding-bottom: 75px;
+    padding-bottom: 60px;
 
     &__title {
       display: block;
@@ -176,7 +174,7 @@
       order: 3;
       max-width: 600px;
       width: 100%;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     &__text-block__title {
@@ -186,7 +184,7 @@
     &__list-item {
       list-style: disc outside;
       padding-left: 3px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     &__list-item__text {
@@ -200,6 +198,7 @@
 
     &__button {
       order: 5;
+      display: none;
       visibility: visible;
       pointer-events: auto;
       background-color: vars.$pink;
@@ -211,8 +210,7 @@
       font-size: 15px;
       font-weight: bold;
       padding: 12px 24px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 50px;
 
       &:hover {
         background-color: vars.$red;
@@ -222,8 +220,6 @@
     }
   }
 }
-
-/* ----- 768px ----- */
 
 @media screen and (max-width: 768px) {
   .section-volunteering {
@@ -284,7 +280,7 @@
     }
 
     &__button {
-      background-color: #FF3D3D;
+      background-color: vars.$pink;
       color: white;
       display: inline-block;
       align-self: center;
@@ -296,15 +292,13 @@
       margin-top: 30px;
 
       &:hover {
-        background-color: #ff2020;
+        background-color: vars.$red;
         transform: scale(1.02);
         transition: 0.25s;
       }
     }
   }
 }
-
-/* ----- 400px ----- */
 
 @media screen and (max-width: 400px) {
   .section-volunteering {

@@ -156,58 +156,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const slider1Img   = document.getElementById("section-volunteering__slider-image");
-    const prevBtn1     = document.getElementById("slider_1_button_prev");
-    const nextBtn1     = document.getElementById("slider_1_button_next");
-    const pagination1  = document.getElementById("section-volunteering__dots");
-    const dots1        = pagination1.getElementsByClassName("dot");
+  const slider1Img   = document.getElementById("section-volunteering__slider-image");
+  const prevBtn1     = document.getElementById("slider_1_button_prev");
+  const nextBtn1     = document.getElementById("slider_1_button_next");
+  const pagination1  = document.getElementById("section-volunteering__dots");
+  const dots1        = pagination1.getElementsByClassName("dot");
 
-    const slider1Images = [
-        "./assets/images/section-volunteering_img_1.jpg",
-        "./assets/images/section-volunteering_img_2.jpg",
-        "./assets/images/section-volunteering_img_3.jpg",
-        "./assets/images/section-volunteering_img_4.jpg",
-        "./assets/images/section-volunteering_img_5.jpg",
-        "./assets/images/section-volunteering_img_6.jpg",
-        "./assets/images/section-volunteering_img_7.jpg"
-    ];
-    let index1 = 0;
+  const slider1Images = [
+      "./assets/images/section-volunteering_img_1.jpg",
+      "./assets/images/section-volunteering_img_2.jpg",
+      "./assets/images/section-volunteering_img_3.jpg",
+      "./assets/images/section-volunteering_img_4.jpg",
+      "./assets/images/section-volunteering_img_5.jpg",
+      "./assets/images/section-volunteering_img_6.jpg",
+      "./assets/images/section-volunteering_img_7.jpg"
+  ];
+  let index1 = 0;
 
-    function updateSlider1() {
-        slider1Img.src = slider1Images[index1];
-        for (let i = 0; i < dots1.length; i++) {
-            dots1[i].classList.toggle("active", i === index1);
-        }
-    }
+  function updateSlider1() {
+      slider1Img.src = slider1Images[index1];
+      for (let i = 0; i < dots1.length; i++) {
+          dots1[i].classList.toggle("active", i === index1);
+      }
+  }
 
-    prevBtn1.onclick = () => {
-        index1 = (index1 - 1 + slider1Images.length) % slider1Images.length;
-        updateSlider1();
-    };
-    nextBtn1.onclick = () => {
-        index1 = (index1 + 1) % slider1Images.length;
-        updateSlider1();
-    };
+  prevBtn1.onclick = () => {
+      index1 = (index1 - 1 + slider1Images.length) % slider1Images.length;
+      updateSlider1();
+  };
+  nextBtn1.onclick = () => {
+      index1 = (index1 + 1) % slider1Images.length;
+      updateSlider1();
+  };
 
-    for (let i = 0; i < dots1.length; i++) {
-        dots1[i].addEventListener("click", () => {
-        index1 = i;
-        updateSlider1();
-        });
-    }
+  for (let i = 0; i < dots1.length; i++) {
+      dots1[i].addEventListener("click", () => {
+      index1 = i;
+      updateSlider1();
+      });
+  }
 
-    function adaptSlider1() {
-        const mobile = window.innerWidth <= 768;
-        prevBtn1.style.display    = mobile ? "none" : "block";
-        nextBtn1.style.display    = mobile ? "none" : "block";
-        pagination1.style.display = mobile ? "flex" : "none";
-    }
+  function adaptSlider1() {
+      const mobile = window.innerWidth <= 768;
+      prevBtn1.style.display    = mobile ? "none" : "block";
+      nextBtn1.style.display    = mobile ? "none" : "block";
+      pagination1.style.display = mobile ? "flex" : "none";
+  }
 
-    window.addEventListener("resize", adaptSlider1);
-    adaptSlider1();
-    updateSlider1();
+  window.addEventListener("resize", adaptSlider1);
+  adaptSlider1();
+  updateSlider1();
 
-    // Кнопка для мобильной версии
+    // Красная кнопка для мобильной версии
 
     document.addEventListener('click', e => {
       if (e.target.closest('.section-volunteering__button')) {
@@ -217,84 +217,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Black Jade Слайдер section-take
 
-    const track2 = document.getElementById("slides");
-    const prevBtn2 = document.getElementById("slider_2_button_prev");
-    const nextBtn2 = document.getElementById("slider_2_button_next");
-    const dots2 = document.querySelectorAll("#section-take__dots .dot");
-    const images2 = track2.querySelectorAll("img");
+    const desktopTrack = document.getElementById("slides");
+    const prevBtn = document.getElementById("slider_2_button_prev");
+    const nextBtn = document.getElementById("slider_2_button_next");
+    const desktopImages = desktopTrack.querySelectorAll("img");
+    const dots = document.querySelectorAll("#section-take__dots .dot");
+    const mobileSliderImg = document.getElementById("section-take__slider-mobile");
 
-    let index2 = 1;
+    const mobileSliderImages = [
+      "./assets/images/section-take_img.jpg",
+      "./assets/images/section-take_img_1.jpg",
+      "./assets/images/section-take_img_2.jpg",
+      "./assets/images/section-take_img_3.jpg",
+      "./assets/images/section-take_img_4.jpg",
+      "./assets/images/section-take_img_5.jpg",
+      "./assets/images/section-take_img_6.jpg",
+      "./assets/images/section-take_img_7.jpg",
+    ];
 
-    function updateSlider2() {
-      const isMobile = window.innerWidth <= 400;
+    let indexDesktop = 1;
+    let indexMobile = 0;
 
-      if (isMobile) {
-        track2.style.transform = "none";
-        track2.style.display = "flex";
-        track2.style.justifyContent = "center";
-        track2.style.alignItems = "center";
-        track2.style.width = "100vw";
-        track2.style.height = "100vh";
+    function updateDesktopSlider() {
+      const step = desktopImages[0].clientWidth;
+      const offset = step * indexDesktop;
+      desktopTrack.style.transform = `translateX(calc(50% - ${step / 2}px - ${offset}px))`;
 
-        images2.forEach((img, i) => {
-          if (i === index2) {
-            img.style.display = "block";
-            img.style.width = "100vw";
-            img.style.height = "100vh";
-            img.style.objectFit = "cover";
-          } else {
-            img.style.display = "none";
-          }
-        });
-
-        prevBtn2.style.display = "none";
-        nextBtn2.style.display = "none";
-        document.getElementById("section-take__dots").style.display = "flex";
-      } else {
-        const step = images2[0].clientWidth;
-        const offset = step * index2;
-        track2.style.transform = `translateX(calc(50% - ${step / 2}px - ${offset}px))`;
-        track2.style.display = "flex";
-        track2.style.width = "";
-        track2.style.height = "";
-
-        images2.forEach((img) => {
-          img.style.display = "block";
-          img.style.width = "";
-          img.style.height = "";
-          img.style.objectFit = "";
-        });
-
-        prevBtn2.style.display = "block";
-        nextBtn2.style.display = "block";
-        document.getElementById("section-take__dots").style.display = "none";
-      }
-
-      dots2.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index2);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === indexDesktop);
       });
     }
 
-    prevBtn2.addEventListener("click", () => {
-      index2 = (index2 - 1 + images2.length) % images2.length;
-      updateSlider2();
-    });
+    function updateMobileSlider() {
+      mobileSliderImg.src = mobileSliderImages[indexMobile];
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === indexMobile);
+      });
+    }
 
-    nextBtn2.addEventListener("click", () => {
-      index2 = (index2 + 1) % images2.length;
-      updateSlider2();
-    });
+    function toggleSliders() {
+      const isMobile = window.innerWidth <= 768;
 
-    dots2.forEach((dot, i) => {
+      const desktopWrapper = document.getElementById("take-desktop");
+      const mobileWrapper = document.getElementById("take-mobile");
+
+      if (isMobile) {
+        desktopWrapper.style.display = "none";
+        mobileWrapper.style.display = "block";
+        updateMobileSlider();
+      } else {
+        desktopWrapper.style.display = "block";
+        mobileWrapper.style.display = "none";
+        updateDesktopSlider();
+      }
+    }
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener("click", () => {
+        indexDesktop = (indexDesktop - 1 + desktopImages.length) % desktopImages.length;
+        updateDesktopSlider();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        indexDesktop = (indexDesktop + 1) % desktopImages.length;
+        updateDesktopSlider();
+      });
+    }
+
+    dots.forEach((dot, i) => {
       dot.addEventListener("click", () => {
-        index2 = i;
-        updateSlider2();
+        if (window.innerWidth <= 768) {
+          indexMobile = i;
+          updateMobileSlider();
+        } else {
+          indexDesktop = i;
+          updateDesktopSlider();
+        }
       });
     });
 
-    window.addEventListener("resize", updateSlider2);
-
-    updateSlider2();
+    window.addEventListener("resize", toggleSliders);
+    window.addEventListener("DOMContentLoaded", toggleSliders);
 
 // Black Jade Footer кнопка
 
