@@ -150,12 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
   updateContent(currentIndex); // начальное состояние
 });
 
-
-
 // Black Jade Слайдер section-volunteering
 
 document.addEventListener("DOMContentLoaded", () => {
-
   const slider1Img   = document.getElementById("section-volunteering__slider-image");
   const prevBtn1     = document.getElementById("slider_1_button_prev");
   const nextBtn1     = document.getElementById("slider_1_button_next");
@@ -163,141 +160,127 @@ document.addEventListener("DOMContentLoaded", () => {
   const dots1        = pagination1.getElementsByClassName("dot");
 
   const slider1Images = [
-      "./assets/images/section-volunteering_img_1.jpg",
-      "./assets/images/section-volunteering_img_2.jpg",
-      "./assets/images/section-volunteering_img_3.jpg",
-      "./assets/images/section-volunteering_img_4.jpg",
-      "./assets/images/section-volunteering_img_5.jpg",
-      "./assets/images/section-volunteering_img_6.jpg",
-      "./assets/images/section-volunteering_img_7.jpg"
+    "./assets/images/section-volunteering_img_1.jpg",
+    "./assets/images/section-volunteering_img_2.jpg",
+    "./assets/images/section-volunteering_img_3.jpg",
+    "./assets/images/section-volunteering_img_4.jpg",
+    "./assets/images/section-volunteering_img_5.jpg",
+    "./assets/images/section-volunteering_img_6.jpg",
+    "./assets/images/section-volunteering_img_7.jpg"
   ];
   let index1 = 0;
 
   function updateSlider1() {
-      slider1Img.src = slider1Images[index1];
-      for (let i = 0; i < dots1.length; i++) {
-          dots1[i].classList.toggle("active", i === index1);
-      }
+    slider1Img.src = slider1Images[index1];
+    for (let i = 0; i < dots1.length; i++) {
+      dots1[i].classList.toggle("active", i === index1);
+    }
   }
 
   prevBtn1.onclick = () => {
-      index1 = (index1 - 1 + slider1Images.length) % slider1Images.length;
-      updateSlider1();
+    index1 = (index1 - 1 + slider1Images.length) % slider1Images.length;
+    updateSlider1();
   };
+
   nextBtn1.onclick = () => {
-      index1 = (index1 + 1) % slider1Images.length;
-      updateSlider1();
+    index1 = (index1 + 1) % slider1Images.length;
+    updateSlider1();
   };
 
   for (let i = 0; i < dots1.length; i++) {
-      dots1[i].addEventListener("click", () => {
+    dots1[i].addEventListener("click", () => {
       index1 = i;
       updateSlider1();
-      });
+    });
   }
 
   function adaptSlider1() {
-      const mobile = window.innerWidth <= 768;
-      prevBtn1.style.display    = mobile ? "none" : "block";
-      nextBtn1.style.display    = mobile ? "none" : "block";
-      pagination1.style.display = mobile ? "flex" : "none";
+    const mobile = window.innerWidth <= 768;
+    prevBtn1.style.display    = mobile ? "none" : "block";
+    nextBtn1.style.display    = mobile ? "none" : "block";
+    pagination1.style.display = mobile ? "flex" : "none";
   }
 
   window.addEventListener("resize", adaptSlider1);
   adaptSlider1();
   updateSlider1();
+});
 
     // Красная кнопка для мобильной версии
 
-    document.addEventListener('click', e => {
-      if (e.target.closest('.section-volunteering__button')) {
-        document.getElementById('popup-overlay').style.display = 'block';
-      }
-    });
+document.addEventListener('click', e => {
+  if (e.target.closest('.section-volunteering__button')) {
+    document.getElementById('popup-overlay').style.display = 'block';
+  }
+});
 
     // Black Jade Слайдер section-take
 
-    const desktopTrack = document.getElementById("slides");
-    const prevBtn = document.getElementById("slider_2_button_prev");
-    const nextBtn = document.getElementById("slider_2_button_next");
-    const desktopImages = desktopTrack.querySelectorAll("img");
-    const dots = document.querySelectorAll("#section-take__dots .dot");
-    const mobileSliderImg = document.getElementById("section-take__slider-mobile");
+const desktopTrack = document.getElementById("slides");
+const prevBtn = document.getElementById("slider_2_button_prev");
+const nextBtn = document.getElementById("slider_2_button_next");
+const desktopImages = desktopTrack.querySelectorAll("img");
 
-    const mobileSliderImages = [
-      "./assets/images/section-take_img.jpg",
-      "./assets/images/section-take_img_1.jpg",
-      "./assets/images/section-take_img_2.jpg",
-      "./assets/images/section-take_img_3.jpg",
-      "./assets/images/section-take_img_4.jpg",
-      "./assets/images/section-take_img_5.jpg",
-      "./assets/images/section-take_img_6.jpg",
-      "./assets/images/section-take_img_7.jpg",
-    ];
+let currentIndex = 0;
+const visibleSlides = 3;
+const gap = 0.07;
 
-    let indexDesktop = 1;
-    let indexMobile = 0;
+function updateDesktopSlider() {
+  const imageWidth = desktopImages[0].offsetWidth;
+  const gapWidth = imageWidth * gap;
+  const step = imageWidth + gapWidth;
+  const offset = step * currentIndex;
 
-    function updateDesktopSlider() {
-      const step = desktopImages[0].clientWidth;
-      const offset = step * indexDesktop;
-      desktopTrack.style.transform = `translateX(calc(50% - ${step / 2}px - ${offset}px))`;
+  desktopTrack.style.transform = `translateX(-${offset}px)`;
+}
 
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === indexDesktop);
-      });
-    }
+prevBtn.addEventListener("click", () => {
+  currentIndex = Math.max(currentIndex - 1, 0);
+  updateDesktopSlider();
+});
 
-    function updateMobileSlider() {
-      mobileSliderImg.src = mobileSliderImages[indexMobile];
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === indexMobile);
-      });
-    }
+nextBtn.addEventListener("click", () => {
+  const maxIndex = desktopImages.length - visibleSlides;
+  currentIndex = Math.min(currentIndex + 1, maxIndex);
+  updateDesktopSlider();
+});
 
-    function toggleSliders() {
-      const isMobile = window.innerWidth <= 768;
+window.addEventListener("DOMContentLoaded", updateDesktopSlider);
+window.addEventListener("resize", updateDesktopSlider);
 
-      const desktopWrapper = document.getElementById("take-desktop");
-      const mobileWrapper = document.getElementById("take-mobile");
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileSliderImg = document.getElementById("section-take__slider-mobile");
+  const dots = document.querySelectorAll("#section-take__dots .dot");
 
-      if (isMobile) {
-        desktopWrapper.style.display = "none";
-        mobileWrapper.style.display = "block";
-        updateMobileSlider();
-      } else {
-        desktopWrapper.style.display = "block";
-        mobileWrapper.style.display = "none";
-        updateDesktopSlider();
-      }
-    }
+  const mobileImages = [
+    "./assets/images/section-take_img.jpg",
+    "./assets/images/section-take_img_1.jpg",
+    "./assets/images/section-take_img_2.jpg",
+    "./assets/images/section-take_img_3.jpg",
+    "./assets/images/section-take_img_4.jpg",
+    "./assets/images/section-take_img_5.jpg",
+    "./assets/images/section-take_img_6.jpg",
+    "./assets/images/section-take_img_7.jpg"
+  ];
 
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener("click", () => {
-        indexDesktop = (indexDesktop - 1 + desktopImages.length) % desktopImages.length;
-        updateDesktopSlider();
-      });
+  let mobileIndex = 0;
 
-      nextBtn.addEventListener("click", () => {
-        indexDesktop = (indexDesktop + 1) % desktopImages.length;
-        updateDesktopSlider();
-      });
-    }
-
+  function updateMobileSlider() {
+    mobileSliderImg.src = mobileImages[mobileIndex];
     dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
-          indexMobile = i;
-          updateMobileSlider();
-        } else {
-          indexDesktop = i;
-          updateDesktopSlider();
-        }
-      });
+      dot.classList.toggle("active", i === mobileIndex);
     });
+  }
 
-    window.addEventListener("resize", toggleSliders);
-    window.addEventListener("DOMContentLoaded", toggleSliders);
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", function () {
+      mobileIndex = i;
+      updateMobileSlider();
+    });
+  });
+
+  updateMobileSlider();
+});
 
 // Black Jade Footer кнопка
 
