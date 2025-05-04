@@ -206,47 +206,73 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSlider1();
 });
 
-    // Красная кнопка для мобильной версии
+// Красная кнопка для мобильной версии
 
-document.addEventListener('click', e => {
-  if (e.target.closest('.section-volunteering__button')) {
-    document.getElementById('popup-overlay').style.display = 'block';
+document.addEventListener('DOMContentLoaded', () => {
+  const popupOverlay = document.getElementById('popup-overlay');
+
+  function showPopup() {
+    popupOverlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
   }
+
+  function hidePopup() {
+    popupOverlay.style.display = 'none';
+    document.body.style.overflow = 'scroll';
+  }
+
+  document.querySelector('.section-volunteering__button').addEventListener('click', () => {
+    showPopup();
+  });
+
+  popupOverlay.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) {
+      hidePopup();
+    }
+  });
 });
 
-    // Black Jade Слайдер section-take
+// Black Jade Слайдер section-take
 
-const desktopTrack = document.getElementById("slides");
-const prevBtn = document.getElementById("slider_2_button_prev");
-const nextBtn = document.getElementById("slider_2_button_next");
-const desktopImages = desktopTrack.querySelectorAll("img");
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = Array.from(document.querySelectorAll('.section-take__slider-image'));
+  const prevBtn = document.getElementById('slider_2_button_prev');
+  const nextBtn = document.getElementById('slider_2_button_next');
+  let centerIndex = 1;
 
-let currentIndex = 0;
-const visibleSlides = 3;
-const gap = 0.07;
+  function renderSlides() {
+    slides.forEach((slide, i) => {
+      if (i >= centerIndex - 1 && i <= centerIndex + 1) {
+        slide.style.display = 'block';
+      } else {
+        slide.style.display = 'none';
+      }
 
-function updateDesktopSlider() {
-  const imageWidth = desktopImages[0].offsetWidth;
-  const gapWidth = imageWidth * gap;
-  const step = imageWidth + gapWidth;
-  const offset = step * currentIndex;
+      slide.classList.remove('section-take__slider-image--active');
+    });
 
-  desktopTrack.style.transform = `translateX(-${offset}px)`;
-}
+    if (slides[centerIndex]) {
+      slides[centerIndex].classList.add('section-take__slider-image--active');
+    }
+  }
 
-prevBtn.addEventListener("click", () => {
-  currentIndex = Math.max(currentIndex - 1, 0);
-  updateDesktopSlider();
+  prevBtn.addEventListener('click', function () {
+    if (centerIndex > 1) {
+      centerIndex--;
+      renderSlides();
+    }
+  });
+
+  nextBtn.addEventListener('click', function () {
+    if (centerIndex < slides.length - 2) {
+      centerIndex++;
+      renderSlides();
+    }
+  });
+
+  renderSlides();
 });
 
-nextBtn.addEventListener("click", () => {
-  const maxIndex = desktopImages.length - visibleSlides;
-  currentIndex = Math.min(currentIndex + 1, maxIndex);
-  updateDesktopSlider();
-});
-
-window.addEventListener("DOMContentLoaded", updateDesktopSlider);
-window.addEventListener("resize", updateDesktopSlider);
 
 document.addEventListener("DOMContentLoaded", function () {
   const mobileSliderImg = document.getElementById("section-take__slider-mobile");

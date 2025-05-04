@@ -1191,8 +1191,11 @@ li {
     display: none !important;
   }
   .section-volunteering__dots {
-    display: block !important;
+    display: flex !important;
+    justify-content: center;
+    gap: 10px;
     margin-top: 50px;
+    margin-right: 33%;
   }
   .section-volunteering__text-block {
     width: 100%;
@@ -1236,25 +1239,31 @@ li {
 @media screen and (max-width: 768px) {
   .section-volunteering__container {
     display: flex;
-    padding-bottom: 20px;
   }
   .section-volunteering__title {
     font-size: 20px;
-    margin-bottom: -20px;
+    margin-top: 5px;
   }
   .section-volunteering__slider {
-    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-right: 23%;
   }
   .section-volunteering__slider-button {
     display: none;
   }
   .section-volunteering__dots {
+    display: flex !important;
+    justify-content: center;
     gap: 10px;
     margin-top: 45px;
   }
   .section-volunteering__text-block {
     font-size: 16px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .section-volunteering__text-block-title {
     display: none;
@@ -1267,14 +1276,29 @@ li {
 }
 @media screen and (max-width: 400px) {
   .section-volunteering__container {
-    padding: 30px;
+    padding: 40px;
   }
   .section-volunteering__title {
     font-size: 20px;
     margin-bottom: 20px;
   }
+  .section-volunteering__slider {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  .section-volunteering__slider-image {
+    max-width: 100%;
+    height: auto;
+  }
   .section-volunteering__dots {
-    margin-top: 40px;
+    display: flex !important;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
   }
   .section-volunteering__text-block {
     margin-top: -5px;
@@ -1330,12 +1354,11 @@ li {
 }
 .section-take__slider-image {
   max-width: 240px;
-  flex-shrink: 0;
-  transition: transform 0.5s ease;
+  transition: all 0.4s ease;
 }
 .section-take__slider-image--active {
   max-width: 285px;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 .section-take__slider-button {
   position: absolute;
