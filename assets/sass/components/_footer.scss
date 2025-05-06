@@ -5,137 +5,171 @@
 .footer {
     background-color: vars.$dark-green;
     font-family: "Montserrat";
-    padding: 40px;
+    gap: 60px;
+    padding: 20px;
 
     &__container {
-      @extend %container;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        @extend %container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
     }
 
     &__logo {
-      margin-right: 45%;
+        flex-shrink: 0;
     }
 
     &__contacts {
-      text-align: left;
-      margin-left: 6%;
-
-      p {
-        font-size: 15px;
-        margin: 5px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        font-size: 16px;
+        line-height: 32px;
+        margin-left: auto;
 
         a {
-          cursor: pointer;
+            cursor: pointer;
         }
 
         .copy_button {
-          height: 15px;
-          width: 13.13px;
-          background-color: vars.$dark-green;
-          border: none;
-          cursor: pointer;
+            height: 15px;
+            width: 13.13px;
+            background-color: vars.$dark-green;
+            border: none;
+            cursor: pointer;
         }
-      }
     }
 
     &__social {
-      display: flex;
-      margin-left: 5%;
-
-      &-link {
         display: flex;
-      }
-
-      &-icon {
-        height: 60.18px;
-        width: 64.53px;
-      }
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .footer {
-      &__container {
-        flex-direction: row;
-        justify-content: space-between;
         align-items: center;
-        padding: 30px;
-      }
+        gap: 10px;
 
-      .footer__social-icon {
-        height: 55px;
-        width: 55px;
-      }
+        &-link {
+            display: flex;
+        }
 
-      &__contacts {
-        margin-left: -10%;
-      }
+        &-icon {
+            height: 60px;
+            width: 60px;
+        }
     }
-  }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .footer {
+        font-size: 13px!important;
+        line-height: 26px!important;
+        padding: 50px;
+
+        &__container {
+            flex-wrap: nowrap;
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        &__logo {
+            margin-right: auto;
+        }
+
+        &__contacts {
+            font-size: 13px;
+            line-height: 26px;
+        }
+
+        &__social {
+            margin-left: auto;
+        }
+
+        .footer__social-icon {
+            height: 55px;
+            width: 55px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
     .footer {
         font-size: 13px;
+        line-height: 26px;
+        padding: 50px;
 
-      &__container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-      }
+        &__container {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
 
-      .footer__social-icon {
-        height: 50px;
-        width: 50px;
-      }
+        &__logo {
+            display: none;
+        }
 
-      &__logo {
-        display: none;
-      }
+        &__contacts {
+            font-size: 13px;
+            line-height: 26px;
+            margin-left: 0;
+        }
 
-      &__contacts {
-        margin-left: 0;
-      }
+        .footer__social {
+            margin-top: 30px;
+            margin-left: 0;
+        }
 
-      &__social {
-        margin-left: 0;
-      }
+       .footer__social-icon {
+            height: 50px;
+            width: 50px;
+        }
     }
-  }
+}
 
-  @media (max-width: 400px) {
+@media (max-width: 400px) {
     .footer {
-      font-size: 13px;
-      padding: 0;
-
-      &__container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        font-size: 13px;
+        line-height: 20px;
         padding: 40px;
-      }
 
-      &__logo {
-        display: none;
-      }
+        &__container {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
 
-      &__social-icon {
-        height: 45px;
-        width: 45px;
-        margin-left: 7%;
-      }
+        &__logo {
+            display: none;
+        }
 
-      &__contacts {
-        margin-left: 0;
-      }
+        &__contacts {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            font-size: 13px;
+            line-height: 26px;
+            margin: 0;
+        }
 
-      &__social {
-        margin-left: 0;
-      }
+        .footer__contact {
+            white-space: nowrap;
+            font-size: 13px;
+            line-height: 26px;
+        }
+
+        .footer__social {
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: flex-start;
+            gap: 5px;
+            margin-top: 30px;
+        }
+
+        .footer__social-icon {
+            height: 40px;
+            width: 40px;
+        }
     }
-  }
-
-
-
+}
