@@ -1,63 +1,89 @@
 @use "../fonts";
 @use "../vars";
+@use "../templates";
 
 .footer {
     background-color: vars.$dark-green;
     font-family: "Montserrat";
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 60px;
     padding: 20px;
 
+    &__container {
+        @extend %container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+    }
+
     &__logo {
-        margin-right: 35%;
+        flex-shrink: 0;
     }
 
     &__contacts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
         text-align: left;
-        margin-left: 8%;
+        font-size: 16px;
+        line-height: 32px;
+        margin-left: auto;
 
-        p {
-            font-size: 15px;
-            margin: 5px 0;
+        a {
+            cursor: pointer;
+        }
 
-            a {
-                cursor: pointer;
-            }
-
-            .copy_button {
-                height: 15px;
-                width: 13.13px;
-                background-color: vars.$dark-green;
-                border: none;
-                cursor: pointer;
-            }
+        .copy_button {
+            height: 15px;
+            width: 13.13px;
+            background-color: vars.$dark-green;
+            border: none;
+            cursor: pointer;
         }
     }
 
     &__social {
         display: flex;
-        margin-left: 6%;
+        align-items: center;
+        gap: 10px;
 
         &-link {
             display: flex;
         }
 
         &-icon {
-            height: 60.18px;
-            width: 64.53px;
+            height: 60px;
+            width: 60px;
         }
     }
 }
 
 @media (max-width: 1024px) {
     .footer {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 40px;
+        font-size: 13px!important;
+        line-height: 26px!important;
+        padding: 50px;
+
+        &__container {
+            flex-wrap: nowrap;
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        &__logo {
+            margin-right: auto;
+        }
+
+        &__contacts {
+            font-size: 13px;
+            line-height: 26px;
+        }
+
+        &__social {
+            margin-left: auto;
+        }
 
         .footer__social-icon {
             height: 55px;
@@ -68,16 +94,15 @@
 
 @media (max-width: 768px) {
     .footer {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 40px;
+        font-size: 13px;
+        line-height: 26px;
+        padding: 50px;
 
-        .footer__social-icon {
-            height: 50px;
-            width: 50px;
+        &__container {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
         }
 
         &__logo {
@@ -85,44 +110,66 @@
         }
 
         &__contacts {
+            font-size: 13px;
+            line-height: 26px;
             margin-left: 0;
         }
 
-        &__social {
+        .footer__social {
+            margin-top: 30px;
             margin-left: 0;
+        }
+
+       .footer__social-icon {
+            height: 50px;
+            width: 50px;
         }
     }
 }
 
 @media (max-width: 400px) {
     .footer {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         font-size: 13px;
+        line-height: 20px;
         padding: 40px;
+
+        &__container {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
 
         &__logo {
             display: none;
         }
 
-        &__social-icon {
-            height: 47.4px;
-            width: 48px;
-        }
-
         &__contacts {
-            margin-left: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            font-size: 13px;
+            line-height: 26px;
+            margin: 0;
         }
 
-        &__social {
-            margin-left: 0;
+        .footer__contact {
+            white-space: nowrap;
+            font-size: 13px;
+            line-height: 26px;
+        }
+
+        .footer__social {
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: flex-start;
+            gap: 5px;
+            margin-top: 30px;
+        }
+
+        .footer__social-icon {
+            height: 40px;
+            width: 40px;
         }
     }
 }
-
-
-
-

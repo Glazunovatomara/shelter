@@ -159,13 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // Black Jade Слайдер section-volunteering
 
 document.addEventListener("DOMContentLoaded", () => {
-  const slider1Img = document.getElementById(
-    "section-volunteering__slider-image"
-  );
-  const prevBtn1 = document.getElementById("slider_1_button_prev");
-  const nextBtn1 = document.getElementById("slider_1_button_next");
-  const pagination1 = document.getElementById("section-volunteering__dots");
-  const dots1 = pagination1.getElementsByClassName("dot");
+
+  const slider1Img   = document.getElementById("section-volunteering__slider-image");
+  const prevBtn1     = document.getElementById("slider_1_button_prev");
+  const nextBtn1     = document.getElementById("slider_1_button_next");
+  const pagination1  = document.getElementById("section-volunteering__dots");
+  const dots1        = pagination1.getElementsByClassName("dot");
+
 
   const slider1Images = [
     "./assets/images/section-volunteering_img_1.jpg",
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "./assets/images/section-volunteering_img_4.jpg",
     "./assets/images/section-volunteering_img_5.jpg",
     "./assets/images/section-volunteering_img_6.jpg",
-    "./assets/images/section-volunteering_img_7.jpg",
+    "./assets/images/section-volunteering_img_7.jpg"
   ];
   let index1 = 0;
 
@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     index1 = (index1 - 1 + slider1Images.length) % slider1Images.length;
     updateSlider1();
   };
+
   nextBtn1.onclick = () => {
     index1 = (index1 + 1) % slider1Images.length;
     updateSlider1();
@@ -203,35 +204,91 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function adaptSlider1() {
     const mobile = window.innerWidth <= 768;
-    prevBtn1.style.display = mobile ? "none" : "block";
-    nextBtn1.style.display = mobile ? "none" : "block";
+
+    prevBtn1.style.display    = mobile ? "none" : "block";
+    nextBtn1.style.display    = mobile ? "none" : "block";
     pagination1.style.display = mobile ? "flex" : "none";
   }
 
   window.addEventListener("resize", adaptSlider1);
   adaptSlider1();
   updateSlider1();
+});
 
-  // Красная кнопка для мобильной версии
 
-  document.addEventListener("click", (e) => {
-    if (e.target.closest(".section-volunteering__button")) {
-      document.getElementById("popup-overlay").style.display = "block";
+// Красная кнопка для мобильной версии
+
+document.addEventListener('DOMContentLoaded', () => {
+  const popupOverlay = document.getElementById('popup-overlay');
+
+  function showPopup() {
+    popupOverlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hidePopup() {
+    popupOverlay.style.display = 'none';
+    document.body.style.overflow = 'scroll';
+  }
+
+  document.querySelector('.section-volunteering__button').addEventListener('click', () => {
+    showPopup();
+  });
+
+  popupOverlay.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) {
+      hidePopup();
+    }
+  });
+});
+
+// Black Jade Слайдер section-take
+
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = Array.from(document.querySelectorAll('.section-take__slider-image'));
+  const prevBtn = document.getElementById('slider_2_button_prev');
+  const nextBtn = document.getElementById('slider_2_button_next');
+  let centerIndex = 1;
+
+  function renderSlides() {
+    slides.forEach((slide, i) => {
+      if (i >= centerIndex - 1 && i <= centerIndex + 1) {
+        slide.style.display = 'block';
+      } else {
+        slide.style.display = 'none';
+      }
+
+      slide.classList.remove('section-take__slider-image--active');
+    });
+
+    if (slides[centerIndex]) {
+      slides[centerIndex].classList.add('section-take__slider-image--active');
+    }
+  }
+
+  prevBtn.addEventListener('click', function () {
+    if (centerIndex > 1) {
+      centerIndex--;
+      renderSlides();
     }
   });
 
-  // Black Jade Слайдер section-take
+  nextBtn.addEventListener('click', function () {
+    if (centerIndex < slides.length - 2) {
+      centerIndex++;
+      renderSlides();
+    }
+  });
 
-  const desktopTrack = document.getElementById("slides");
-  const prevBtn = document.getElementById("slider_2_button_prev");
-  const nextBtn = document.getElementById("slider_2_button_next");
-  const desktopImages = desktopTrack.querySelectorAll("img");
+  renderSlides();
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileSliderImg = document.getElementById("section-take__slider-mobile");
   const dots = document.querySelectorAll("#section-take__dots .dot");
-  const mobileSliderImg = document.getElementById(
-    "section-take__slider-mobile"
-  );
 
-  const mobileSliderImages = [
+  const mobileImages = [
     "./assets/images/section-take_img.jpg",
     "./assets/images/section-take_img_1.jpg",
     "./assets/images/section-take_img_2.jpg",
@@ -239,34 +296,27 @@ document.addEventListener("DOMContentLoaded", () => {
     "./assets/images/section-take_img_4.jpg",
     "./assets/images/section-take_img_5.jpg",
     "./assets/images/section-take_img_6.jpg",
-    "./assets/images/section-take_img_7.jpg",
+    "./assets/images/section-take_img_7.jpg"
   ];
 
-  let indexDesktop = 1;
-  let indexMobile = 0;
-
-  function updateDesktopSlider() {
-    const step = desktopImages[0].clientWidth;
-    const offset = step * indexDesktop;
-    desktopTrack.style.transform = `translateX(calc(50% - ${
-      step / 2
-    }px - ${offset}px))`;
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === indexDesktop);
-    });
-  }
+  let mobileIndex = 0;
 
   function updateMobileSlider() {
-    mobileSliderImg.src = mobileSliderImages[indexMobile];
+    mobileSliderImg.src = mobileImages[mobileIndex];
     dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === indexMobile);
+      dot.classList.toggle("active", i === mobileIndex);
     });
   }
 
-  function toggleSliders() {
-    const isMobile = window.innerWidth <= 768;
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", function () {
+      mobileIndex = i;
+      updateMobileSlider();
+    });
+  });
 
+  updateMobileSlider();
+});
     const desktopWrapper = document.getElementById("take-desktop");
     const mobileWrapper = document.getElementById("take-mobile");
 
