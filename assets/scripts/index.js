@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileWrapper.style.display = "none";
       updateDesktopSlider();
     }
-  }
+  
 
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener("click", () => {
@@ -369,4 +369,3 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Ошибка копирования", err);
     });
   }
-});
