@@ -564,7 +564,7 @@ li {
   justify-content: center;
   text-transform: uppercase;
   background-color: #FCFCEB;
-  transform: translateY(-100%);
+  transform: translateX(100%);
   transition: 0.3s;
   max-width: 400px;
   width: 100%;
@@ -581,8 +581,7 @@ li {
   color: #92cc72;
 }
 
-.header-menu__burger::after,
-.header-menu__burger::before {
+.header-menu__burger span {
   content: "";
   right: 0;
   position: absolute;
@@ -592,37 +591,46 @@ li {
   background-color: #FF4F4F;
 }
 
-.header-menu__burger::after {
-  bottom: 0;
-  transition: bottom 0.3s 0.15s, transform 0.3s;
+.header-menu__burger span::after,
+.header-menu__burger span::before {
+  content: "";
+  right: 0;
+  position: absolute;
+  display: block;
+  height: 2px;
+  background-color: #FF4F4F;
 }
 
-.header-menu__burger::before {
-  top: 0;
-  box-shadow: 0 6px 0 #FF4F4F;
-  transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
+.header-menu__burger span::after {
+  width: 20px;
+  top: 6px;
 }
 
-.header-menu__checkbox:checked + .header-menu__burger::before {
-  top: 11px;
-  transform: rotate(45deg);
-  box-shadow: 0 0 0 #FF4F4F;
-  transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
+.header-menu__burger span::before {
+  width: 14px;
+  top: 12px;
 }
 
-.header-menu__checkbox:checked + .header-menu__burger::after {
+.header-menu__checkbox:checked + .header-menu__burger span::before {
+  top: 0px;
+  width: 100%;
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+.header-menu__checkbox:checked + .header-menu__burger span {
   bottom: 11px;
-  transform: rotate(-45deg);
-  transition: bottom 0.3s, transform 0.3s 0.15s;
+  transform: rotate(45deg);
+  transition: 0.3s;
 }
 
-.header-menu__checkbox:checked ~ .header-menu__burger {
-  height: 24px;
+.header-menu__checkbox:checked ~ .header-menu__burger span::after {
+  width: 0px;
 }
 
 .header-menu__checkbox:checked ~ .header-menu__list {
   top: 59px;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .section-hero > div {
