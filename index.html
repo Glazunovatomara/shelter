@@ -23,7 +23,7 @@
                     <li class="header-nav__list-item"><a href="#help">Как помочь</a></li>
                     <li class="header-nav__list-item"><a href="#volunteering">волонтерство</a></li>
                     <li class="header-nav__list-item"><a href="#contacts">контакты</a></li>
-                    <li class="header-nav__list-item">пожертвовать</li>
+                    <li class="header-nav__list-item"><a href="#" id="nav-popup">пожертвовать</a></li>
                 </ul>
             </nav>
             <div class="header-menu">
@@ -36,7 +36,7 @@
                     <li><a href="#help" class="header-menu__list-item">Как помочь</a></li>
                     <li><a href="#volunteering" class="header-menu__list-item">волонтерство</a></li>
                     <li><a href="#contacts" class="header-menu__list-item">контакты</a></li>
-                    <li class="header-menu__list-item">пожертвовать</li>
+                    <li><a href="#" class="header-menu__list-item" id="menu-popup">пожертвовать</a></li>
                 </ul>
             </div>
         </div>
@@ -50,10 +50,23 @@
                     <p class="section-hero__info-text">В нашем приюте живут пожилые и пострадавшие собаки.
                         <br>Мы даём им лечение, тепло и чувство безопасности.
                         <br>Многим — больше десяти лет. Но есть и те, кто молод и готов бежать навстречу новому дому.</p>
-                    <button class="section-hero__info-btn">пожертвовать</button>
+                    <button class="section-hero__info-btn" id="btn-hero">пожертвовать</button>
                 </div>
             </div>
         </sectoin>
+        <div id="popup-overlay">
+            <div class="popup" id="popup">
+                <span class="popup-close" id="close"></span>
+                <p class="popup-text">Спасибо, что решили помочь! Ваш вклад - это корм, лечение и тепло для стареньких собак.</p>
+                <p class="popup-text">Скопируйте реквизиты - любая сумма имеет значение.</p>
+                <p class="popup-text">СБП: <span class="popup-text__decor" id="sbp">89062153045</span><span id="copy_1"></span><br>
+                    КАРТА СБЕР: <span class="popup-text__decor" id="card-num">5228 6005 2983 6159</span><span id="copy_2"></span><br>
+                    <span class="popup-text__decor">(Мария Евгеньевна К.)</span>
+                </p>
+                <p class="popup-text">Спасибо, что не прошли мимо.<br>
+                  Вместе мы можем больше.</p>
+            </div>
+        </div>
         <!-- заканчиваeтся  блок Тамара-->
         <!-- блок Ирина -->
         <section class="section-help" id="help">
@@ -208,21 +221,24 @@
       </section>
       <!-- заканчиваeтся блок Ирина-->
 
-        <!-- блок Black Jade-->
+      <!-- Блок Black Jade-->
 
-        <section class="section-volunteering" id="volunteering">
+      <section class="section-volunteering" id="volunteering">
+        <div class="section-volunteering__container">
+          <h2 class="section-volunteering__title">ШАГИ К ВОЛОНТЁРСТВУ:</h2>
+          <div class="section-volunteering__row">
             <div class="section-volunteering__slider">
-                <img src="/assets/images/section-volunteering_img_1.jpg" class="section-volunteering__slider-image" id="section-volunteering__slider-image" alt="slide" />
+              <img src="./assets/images/section-volunteering_img_4.jpg" class="section-volunteering__slider-image" id="section-volunteering__slider-image" alt="slide">
 
-                <button class="section-volunteering__slider-button section-volunteering__slider-button--left" id="slider_1_button_prev">
-                    <img src="/assets/icons/nav_left.png" alt="prev">
-                </button>
-                <button class="section-volunteering__slider-button section-volunteering__slider-button--right" id="slider_1_button_next">
-                    <img src="/assets/icons/nav_right.png" alt="next">
-                </button>
-            </div>
+              <button class="section-volunteering__slider-button section-volunteering__slider-button--left" id="slider_1_button_prev">
+                <img src="./assets/icons/paw.svg" alt="prev">
+              </button>
 
-            <div class="section-volunteering__dots" id="section-volunteering__dots">
+              <button class="section-volunteering__slider-button section-volunteering__slider-button--right" id="slider_1_button_next">
+                <img src="./assets/icons/paw.svg" alt="next">
+              </button>
+
+              <div class="section-volunteering__dots" id="section-volunteering__dots">
                 <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -230,86 +246,113 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
+              </div>
             </div>
 
             <div class="section-volunteering__text-block">
-                <h1 class="section-volunteering__title">ШАГИ К ВОЛОНТЁРСТВУ:</h1>
-                <ul class="section-volunteering__list">
-                    <li class="section-volunteering__list-item">
-                    <h3 class="section-volunteering__list-item-title">Напиши нам</h3>
-                    <p class="section-volunteering__list-item-text">Свяжись через WhatsApp, Telegram или просто позвони. Расскажи немного о себе — и мы подскажем, как ты можешь помочь.</p>
-                    </li>
-                    <li class="section-volunteering__list-item">
-                    <h3 class="section-volunteering__list-item-title">Познакомимся в приюте</h3>
-                    <p class="section-volunteering__list-item-text">На месте покажем, как устроен быт, расскажем о собаках и нуждах. Увидишь всё своими глазами.</p>
-                    </li>
-                    <li class="section-volunteering__list-item">
-                    <h3 class="section-volunteering__list-item-title">Начнёшь помогать</h3>
-                    <p class="section-volunteering__list-item-text">Выгулять, построить, поиграть, убраться, пофоткать или просто посидеть рядом — помощь бывает разной, но всегда важной.</p>
-                    </li>
-                    <li class="section-volunteering__list-item">
-                    <h3 class="section-volunteering__list-item-title">Станешь частью команды</h3>
-                    <p class="section-volunteering__list-item-text">У нас неформально, по-доброму и по-настоящему. Мы будем очень рады тебе и твоему  времени.</p>
-                    </li>
-                </ul>
+              <h2 class="section-volunteering__text-block-title">ШАГИ К ВОЛОНТЁРСТВУ:</h2>
+              <ul class="section-volunteering__list">
+                <li class="section-volunteering__list-item">
+                  <p class="section-volunteering__list-item__text">
+                  <strong>Напиши нам</strong><br>
+                  Свяжись через WhatsApp, Telegram или просто позвони. Расскажи немного о себе — и мы подскажем, как ты можешь помочь.</p>
+                </li>
+                <li class="section-volunteering__list-item">
+                  <p class="section-volunteering__list-item__text">
+                  <strong>Познакомимся в приюте</strong><br>
+                  На месте покажем, как устроен быт, расскажем о собаках и нуждах. Увидишь всё своими глазами</p>
+                </li>
+                <li class="section-volunteering__list-item">
+                  <p class="section-volunteering__list-item__text">
+                  <strong>Начнёшь помогать</strong><br>
+                  Выгулять, построить, поиграть, убраться, пофоткать или просто посидеть рядом — помощь бывает разной, но всегда важной.</p>
+                </li>
+                <li class="section-volunteering__list-item">
+                  <p class="section-volunteering__list-item__text">
+                  <strong>Станешь частью команды</strong><br>
+                  У нас неформально, по-доброму и по-настоящему. Мы будем очень рады тебе и твоему  времени.</p>
+                </li>
+              </ul>
             </div>
-        </section>
+          </div>
+          <button class="section-volunteering__button">ПОЖЕРТВОВАТЬ</button>
+        </div>
+      </section>
 
-        <section class="section-take" id="take">
-            <h1 class="section-take__title">ВЗЯТЬ СОБАКУ ДОМОЙ</h1>
+      <section class="section-take" id="take">
+        <div class="section-take__container">
+          <h2 class="section-take__title">ВЗЯТЬ СОБАКУ ДОМОЙ</h2>
+
+          <div class="section-take__slider-desktop" id="take-desktop">
             <div class="section-take__slider">
-                <button class="section-take__slider-button section-take__slider-button--left" id="slider_2_button_prev">
-                    <img src="/assets/icons/nav_left.png" alt="prev" />
-                </button>
+              <button class="section-take__slider-button section-take__slider-button--left" id="slider_2_button_prev">
+                <img src="./assets/icons/paw.svg" alt="prev" />
+              </button>
 
-                <div class="section-take__slider-window">
-                    <div class="section-take__slider-track" id="slides">
-                        <img src="/assets/images/section-take_img.jpg" class="section-take__slider-image" alt="slide" />
-                        <img src="/assets/images/section-take_img_1.jpg" class="section-take__slider-image section-take__slider-image--active" alt="slide" />
-                        <img src="/assets/images/section-take_img_2.jpg" class="section-take__slider-image" alt="slide" />
-                        <img src="/assets/images/section-take_img_3.jpg" class="section-take__slider-image" alt="slide" />
-                        <img src="/assets/images/section-take_img_4.jpg" class="section-take__slider-image" alt="slide" />
-                        <img src="/assets/images/section-take_img_5.jpg" class="section-take__slider-image" alt="slide" />
-                        <img src="/assets/images/section-take_img_6.jpg" class="section-take__slider-image" alt="slide" />
-                        <img src="/assets/images/section-take_img_7.jpg" class="section-take__slider-image" alt="slide" />
-                    </div>
+              <div class="section-take__slider-window">
+                <div class="section-take__slider-track" id="slides">
+                  <img src="./assets/images/section-take_img.jpg" class="section-take__slider-image" alt="slide" />
+                  <img src="./assets/images/section-take_img_1.jpg" class="section-take__slider-image section-take__slider-image--active" alt="slide" />
+                  <img src="./assets/images/section-take_img_2.jpg" class="section-take__slider-image" alt="slide" />
+                  <img src="./assets/images/section-take_img_3.jpg" class="section-take__slider-image" alt="slide" />
+                  <img src="./assets/images/section-take_img_4.jpg" class="section-take__slider-image" alt="slide" />
+                  <img src="./assets/images/section-take_img_5.jpg" class="section-take__slider-image" alt="slide" />
+                  <img src="./assets/images/section-take_img_6.jpg" class="section-take__slider-image" alt="slide" />
+                  <img src="./assets/images/section-take_img_7.jpg" class="section-take__slider-image" alt="slide" />
                 </div>
+              </div>
 
-                <button class="section-take__slider-button section-take__slider-button--right" id="slider_2_button_next">
-                    <img src="/assets/icons/nav_right.png" alt="next" />
-                </button>
+              <button class="section-take__slider-button section-take__slider-button--right" id="slider_2_button_next">
+                <img src="./assets/icons/paw.svg" alt="next" />
+              </button>
             </div>
+          </div>
 
-            <div class="section-take__dots" id="section-take__dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
+          <div class="section-take__slider-mobile-wrapper" id="take-mobile">
+            <img src="./assets/images/section-take_img_1.jpg" class="section-take__slider-mobile" id="section-take__slider-mobile" alt="mobile-slide" />
+          </div>
 
-            <p class="section-take__description">У каждого из них своя история. Но всем им нужно одно — человек, рядом с которым они снова станут счастливыми.</p>
-        </section>
+          <div class="section-take__dots" id="section-take__dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
 
+          <p class="section-take__description">У каждого из них своя история.<br>Но всем им нужно одно — человек, рядом с которым они снова станут счастливыми.</p>
+        </div>
+      </section>
     </main>
 
     <footer class="footer" id="contacts">
-        <img src="/assets/icons/footer_logo.svg" class="footer__logo" alt="logo" />
+      <div class="footer__container">
+        <img src="./assets/icons/footer_logo.svg" class="footer__logo" alt="logo" />
+
         <div class="footer__contacts">
-            <p class="footer__contact">КОНТАКТЫ: Тел.: +7 (906) 215 30 45</p>
-            <p class="footer__contact">E-mail: example@example.com</p>
+          <p class="footer__contact">
+            КОНТАКТЫ:<br>
+            Тел.: <a href="tel:+79062153045" id="phone">+7 (906) 215 30 45</a>
+            <button class="copy_button" onclick="copyToClipboard('phone')" aria-label="Copy phone number">
+              <img src="./assets/icons/copy.svg" alt="copy" />
+            </button>
+            <br>
+            E-mail: <a href="mailto:priyut.kosma@mail.ru" id="email">priyut.kosma@mail.ru</a>
+            <button class="copy_button" onclick="copyToClipboard('email')" aria-label="Copy email address">
+              <img src="./assets/icons/copy.svg" alt="copy" />
+            </button>
+          </p>
         </div>
-        <p class="footer__social">
-            <a href="https://t.me/priyutvKosme" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/icons/telegram_icon.svg" class="footer__social-icon" alt="telegram" />
-            </a>
-            <a href="https://wa.me/79062153045" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/icons/whatsapp_icon.svg" class="footer__social-icon" alt="whatsapp" />
-            </a>
-        </p>
+
+        <div class="footer__social">
+          <a href="https://t.me/priyutvKosme" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/icons/telegram_icon.svg" class="footer__social-icon" alt="telegram" />
+          </a>
+        </div>
+      </div>
     </footer>
 
         <!-- заканчиваeтся блок Black Jade-->

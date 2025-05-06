@@ -2,7 +2,10 @@
 @use "../templates";
 
 .header {
+    position: fixed;
+    width: 100%;
     background-color: vars.$beige;
+    z-index: 100;
 }
 .header > div {
     @extend %container;
@@ -15,11 +18,9 @@
     padding-bottom: 13px;
 
     @media (max-width:1160px) {
-        position: fixed;
         top: 0;
         padding-bottom: 4px;
         background-color: vars.$beige;
-        z-index: 100;
     }
 }
 .header-logo {
