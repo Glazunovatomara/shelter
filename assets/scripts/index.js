@@ -1,81 +1,87 @@
-
-
 // header
-const checkbox = document.querySelector('.header-menu__checkbox')
-const burger = document.querySelector('.header-menu__list')
-const itemsBurger = document.querySelectorAll('.header-menu__list-item')
+const checkbox = document.querySelector(".header-menu__checkbox");
+const burger = document.querySelector(".header-menu__list");
+const itemsBurger = document.querySelectorAll(".header-menu__list-item");
 
 function closeBurger(event) {
-    let index = Array.from(itemsBurger).indexOf(event.target)
-    let num = itemsBurger.length - 1
-    if(index <= num && index!= -1) {
+  let index = Array.from(itemsBurger).indexOf(event.target);
+  let num = itemsBurger.length - 1;
+  if (index <= num && index != -1) {
     checkbox.checked = false;
-    }
-    if(index === 4) {
-      showPopup()
-    }
+  }
+  if (index === 4) {
+    showPopup();
+  }
 }
 
-burger.addEventListener('click', closeBurger);
+burger.addEventListener("click", closeBurger);
 
 //popup
-const btnPopup = document.getElementById('btn-hero');
-const popupOverlay = document.getElementById('popup-overlay');
-const popup = document.getElementById('popup');
-const sbp = document.getElementById('sbp');
-const cardNum = document.getElementById('card-num');
-const copySbp = document.getElementById('copy_1');
-const copyCard = document.getElementById('copy_2');
-const navPopup = document.getElementById('nav-popup');
-const menuPopup = document.getElementById('menu-popup');
-const close = document.getElementById('close');
+const btnPopup = document.getElementById("btn-hero");
+const popupOverlay = document.getElementById("popup-overlay");
+const popup = document.getElementById("popup");
+const sbp = document.getElementById("sbp");
+const cardNum = document.getElementById("card-num");
+const copySbp = document.getElementById("copy_1");
+const copyCard = document.getElementById("copy_2");
+const navPopup = document.getElementById("nav-popup");
+const menuPopup = document.getElementById("menu-popup");
+const close = document.getElementById("close");
 
 function showPopup() {
-    popupOverlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+  popupOverlay.style.display = "block";
+  document.body.style.overflow = "hidden";
 }
 function hidePopup() {
-  popupOverlay.style.display = 'none';
-  document.body.style.overflow = 'scroll';
+  popupOverlay.style.display = "none";
+  document.body.style.overflow = "scroll";
 }
 
-btnPopup.addEventListener('click',showPopup);
-navPopup.addEventListener('click',showPopup);
-close.addEventListener('click', hidePopup);
+btnPopup.addEventListener("click", showPopup);
+navPopup.addEventListener("click", showPopup);
+close.addEventListener("click", hidePopup);
 
 //copy
-copySbp.addEventListener('click', function() {
-    navigator.clipboard.writeText(sbp.textContent).then(function() {
-      console.log(sbp.textContent)
+copySbp.addEventListener("click", function () {
+  navigator.clipboard
+    .writeText(sbp.textContent)
+    .then(function () {
+      console.log(sbp.textContent);
     })
     .catch((error) => {
-        alert `Произошла ошибка при копировании текста: , ${error}`
-    })
-})
-copyCard.addEventListener('click', function() {
-    navigator.clipboard.writeText(cardNum.textContent).then(function() {
-      console.log(cardNum.textContent)
-    })
-    .catch((error) => {
-        alert `Произошла ошибка при копировании текста: , ${error}`
-    })
-})
-sbp.addEventListener('click', function() {
-    navigator.clipboard.writeText(sbp.textContent).then(function() {
-        console.log(sbp.textContent)
+      alert`Произошла ошибка при копировании текста: , ${error}`;
+    });
+});
+copyCard.addEventListener("click", function () {
+  navigator.clipboard
+    .writeText(cardNum.textContent)
+    .then(function () {
+      console.log(cardNum.textContent);
     })
     .catch((error) => {
-        alert `Произошла ошибка при копировании текста: , ${error}`
+      alert`Произошла ошибка при копировании текста: , ${error}`;
+    });
+});
+sbp.addEventListener("click", function () {
+  navigator.clipboard
+    .writeText(sbp.textContent)
+    .then(function () {
+      console.log(sbp.textContent);
     })
-})
-cardNum.addEventListener('click', function() {
-    navigator.clipboard.writeText(cardNum.textContent).then(function() {
-      console.log(cardNum.textContent)
+    .catch((error) => {
+      alert`Произошла ошибка при копировании текста: , ${error}`;
+    });
+});
+cardNum.addEventListener("click", function () {
+  navigator.clipboard
+    .writeText(cardNum.textContent)
+    .then(function () {
+      console.log(cardNum.textContent);
     })
-    .catch ((error) => {
-        alert `Произошла ошибка при копировании текста: , ${error}`
-    })
-})
+    .catch((error) => {
+      alert`Произошла ошибка при копировании текста: , ${error}`;
+    });
+});
 
 //
 
@@ -153,11 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // Black Jade Слайдер section-volunteering
 
 document.addEventListener("DOMContentLoaded", () => {
+
   const slider1Img   = document.getElementById("section-volunteering__slider-image");
   const prevBtn1     = document.getElementById("slider_1_button_prev");
   const nextBtn1     = document.getElementById("slider_1_button_next");
   const pagination1  = document.getElementById("section-volunteering__dots");
   const dots1        = pagination1.getElementsByClassName("dot");
+
 
   const slider1Images = [
     "./assets/images/section-volunteering_img_1.jpg",
@@ -196,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function adaptSlider1() {
     const mobile = window.innerWidth <= 768;
+
     prevBtn1.style.display    = mobile ? "none" : "block";
     nextBtn1.style.display    = mobile ? "none" : "block";
     pagination1.style.display = mobile ? "flex" : "none";
@@ -205,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
   adaptSlider1();
   updateSlider1();
 });
+
 
 // Красная кнопка для мобильной версии
 
@@ -307,20 +317,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateMobileSlider();
 });
+    const desktopWrapper = document.getElementById("take-desktop");
+    const mobileWrapper = document.getElementById("take-mobile");
 
-// Black Jade Footer кнопка
+    if (isMobile) {
+      desktopWrapper.style.display = "none";
+      mobileWrapper.style.display = "block";
+      updateMobileSlider();
+    } else {
+      desktopWrapper.style.display = "block";
+      mobileWrapper.style.display = "none";
+      updateDesktopSlider();
+    }
+  }
 
-function copyToClipboard(id) {
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      indexDesktop =
+        (indexDesktop - 1 + desktopImages.length) % desktopImages.length;
+      updateDesktopSlider();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      indexDesktop = (indexDesktop + 1) % desktopImages.length;
+      updateDesktopSlider();
+    });
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        indexMobile = i;
+        updateMobileSlider();
+      } else {
+        indexDesktop = i;
+        updateDesktopSlider();
+      }
+    });
+  });
+
+  window.addEventListener("resize", toggleSliders);
+  window.addEventListener("DOMContentLoaded", toggleSliders);
+
+  // Black Jade Footer кнопка
+
+  function copyToClipboard(id) {
     const el = document.getElementById(id);
     const text = el.textContent || el.innerText;
 
-    navigator.clipboard.writeText(text).catch(err => {
-        console.error('Ошибка копирования', err);
+    navigator.clipboard.writeText(text).catch((err) => {
+      console.error("Ошибка копирования", err);
     });
-}
-
-
-
-
-
-
+  }
+});
