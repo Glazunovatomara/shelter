@@ -83,8 +83,7 @@ cardNum.addEventListener("click", function () {
     });
 });
 
-//
-
+//help
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".help-card");
   const contents = document.querySelectorAll(".help-content");
@@ -158,84 +157,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Black Jade Слайдер section-volunteering
 
-document.addEventListener("DOMContentLoaded", () => {
+const volunteeringSlider = document.getElementById("volunteering-slider-image");
+const prevBtn = document.getElementById("slider-button-prev");
+const nextBtn = document.getElementById("slider-button-next");
+const dots = document.querySelectorAll("#volunteering-dots .dot");
 
-  const slider1Img   = document.getElementById("section-volunteering__slider-image");
-  const prevBtn1     = document.getElementById("slider_1_button_prev");
-  const nextBtn1     = document.getElementById("slider_1_button_next");
-  const pagination1  = document.getElementById("section-volunteering__dots");
-  const dots1        = pagination1.getElementsByClassName("dot");
+const imageCount = 7;
+let current = 0;
 
+function updateSlider(index) {
+  volunteeringSlider.src = `./assets/images/section-volunteering_img_${
+    index + 1
+  }.jpg`;
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+}
 
-  const slider1Images = [
-    "./assets/images/section-volunteering_img_1.jpg",
-    "./assets/images/section-volunteering_img_2.jpg",
-    "./assets/images/section-volunteering_img_3.jpg",
-    "./assets/images/section-volunteering_img_4.jpg",
-    "./assets/images/section-volunteering_img_5.jpg",
-    "./assets/images/section-volunteering_img_6.jpg",
-    "./assets/images/section-volunteering_img_7.jpg"
-  ];
-  let index1 = 0;
-
-  function updateSlider1() {
-    slider1Img.src = slider1Images[index1];
-    for (let i = 0; i < dots1.length; i++) {
-      dots1[i].classList.toggle("active", i === index1);
-    }
-  }
-
-  prevBtn1.onclick = () => {
-    index1 = (index1 - 1 + slider1Images.length) % slider1Images.length;
-    updateSlider1();
-  };
-
-  nextBtn1.onclick = () => {
-    index1 = (index1 + 1) % slider1Images.length;
-    updateSlider1();
-  };
-
-  for (let i = 0; i < dots1.length; i++) {
-    dots1[i].addEventListener("click", () => {
-      index1 = i;
-      updateSlider1();
-    });
-  }
-
-  function adaptSlider1() {
-    const mobile = window.innerWidth <= 768;
-
-    prevBtn1.style.display    = mobile ? "none" : "block";
-    nextBtn1.style.display    = mobile ? "none" : "block";
-    pagination1.style.display = mobile ? "flex" : "none";
-  }
-
-  window.addEventListener("resize", adaptSlider1);
-  adaptSlider1();
-  updateSlider1();
+prevBtn.addEventListener("click", () => {
+  current = (current - 1 + imageCount) % imageCount;
+  updateSlider(current);
 });
 
+nextBtn.addEventListener("click", () => {
+  current = (current + 1) % imageCount;
+  updateSlider(current);
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    current = index;
+    updateSlider(current);
+  });
+});
+
+updateSlider(current);
 
 // Красная кнопка для мобильной версии
 
-document.addEventListener('DOMContentLoaded', () => {
-  const popupOverlay = document.getElementById('popup-overlay');
+document.addEventListener("DOMContentLoaded", () => {
+  const popupOverlay = document.getElementById("popup-overlay");
 
   function showPopup() {
-    popupOverlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    popupOverlay.style.display = "block";
+    document.body.style.overflow = "hidden";
   }
 
   function hidePopup() {
-    popupOverlay.style.display = 'none';
-    document.body.style.overflow = 'scroll';
+    popupOverlay.style.display = "none";
+    document.body.style.overflow = "scroll";
   }
 
-  document.querySelector('.section-volunteering__button').addEventListener('click', () => {
-    showPopup();
-  });
+  document
+    .querySelector(".section-volunteering__info-btn")
+    .addEventListener("click", () => {
+      showPopup();
+    });
 
-  popupOverlay.addEventListener('click', (e) => {
+  popupOverlay.addEventListener("click", (e) => {
     if (e.target === popupOverlay) {
       hidePopup();
     }
@@ -244,36 +223,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Black Jade Слайдер section-take
 
-document.addEventListener('DOMContentLoaded', function () {
-  const slides = Array.from(document.querySelectorAll('.section-take__slider-image'));
-  const prevBtn = document.getElementById('slider_2_button_prev');
-  const nextBtn = document.getElementById('slider_2_button_next');
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = Array.from(
+    document.querySelectorAll(".section-take__slider-image")
+  );
+  const prevBtn = document.getElementById("slider_2_button_prev");
+  const nextBtn = document.getElementById("slider_2_button_next");
   let centerIndex = 1;
 
   function renderSlides() {
     slides.forEach((slide, i) => {
       if (i >= centerIndex - 1 && i <= centerIndex + 1) {
-        slide.style.display = 'block';
+        slide.style.display = "block";
       } else {
-        slide.style.display = 'none';
+        slide.style.display = "none";
       }
 
-      slide.classList.remove('section-take__slider-image--active');
+      slide.classList.remove("section-take__slider-image--active");
     });
 
     if (slides[centerIndex]) {
-      slides[centerIndex].classList.add('section-take__slider-image--active');
+      slides[centerIndex].classList.add("section-take__slider-image--active");
     }
   }
 
-  prevBtn.addEventListener('click', function () {
+  prevBtn.addEventListener("click", function () {
     if (centerIndex > 1) {
       centerIndex--;
       renderSlides();
     }
   });
 
-  nextBtn.addEventListener('click', function () {
+  nextBtn.addEventListener("click", function () {
     if (centerIndex < slides.length - 2) {
       centerIndex++;
       renderSlides();
@@ -283,9 +264,10 @@ document.addEventListener('DOMContentLoaded', function () {
   renderSlides();
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
-  const mobileSliderImg = document.getElementById("section-take__slider-mobile");
+  const mobileSliderImg = document.getElementById(
+    "section-take__slider-mobile"
+  );
   const dots = document.querySelectorAll("#section-take__dots .dot");
 
   const mobileImages = [
@@ -296,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "./assets/images/section-take_img_4.jpg",
     "./assets/images/section-take_img_5.jpg",
     "./assets/images/section-take_img_6.jpg",
-    "./assets/images/section-take_img_7.jpg"
+    "./assets/images/section-take_img_7.jpg",
   ];
 
   let mobileIndex = 0;
@@ -317,55 +299,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateMobileSlider();
 });
-    const desktopWrapper = document.getElementById("take-desktop");
-    const mobileWrapper = document.getElementById("take-mobile");
+const desktopWrapper = document.getElementById("take-desktop");
+const mobileWrapper = document.getElementById("take-mobile");
 
-    if (isMobile) {
-      desktopWrapper.style.display = "none";
-      mobileWrapper.style.display = "block";
-      updateMobileSlider();
-    } else {
-      desktopWrapper.style.display = "block";
-      mobileWrapper.style.display = "none";
-      updateDesktopSlider();
-    }
-  
+if (isMobile) {
+  desktopWrapper.style.display = "none";
+  mobileWrapper.style.display = "block";
+  updateMobileSlider();
+} else {
+  desktopWrapper.style.display = "block";
+  mobileWrapper.style.display = "none";
+  updateDesktopSlider();
+}
 
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
-      indexDesktop =
-        (indexDesktop - 1 + desktopImages.length) % desktopImages.length;
-      updateDesktopSlider();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      indexDesktop = (indexDesktop + 1) % desktopImages.length;
-      updateDesktopSlider();
-    });
-  }
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      if (window.innerWidth <= 768) {
-        indexMobile = i;
-        updateMobileSlider();
-      } else {
-        indexDesktop = i;
-        updateDesktopSlider();
-      }
-    });
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener("click", () => {
+    indexDesktop =
+      (indexDesktop - 1 + desktopImages.length) % desktopImages.length;
+    updateDesktopSlider();
   });
 
-  window.addEventListener("resize", toggleSliders);
-  window.addEventListener("DOMContentLoaded", toggleSliders);
+  nextBtn.addEventListener("click", () => {
+    indexDesktop = (indexDesktop + 1) % desktopImages.length;
+    updateDesktopSlider();
+  });
+}
 
-  // Black Jade Footer кнопка
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      indexMobile = i;
+      updateMobileSlider();
+    } else {
+      indexDesktop = i;
+      updateDesktopSlider();
+    }
+  });
+});
 
-  function copyToClipboard(id) {
-    const el = document.getElementById(id);
-    const text = el.textContent || el.innerText;
+window.addEventListener("resize", toggleSliders);
+window.addEventListener("DOMContentLoaded", toggleSliders);
 
-    navigator.clipboard.writeText(text).catch((err) => {
-      console.error("Ошибка копирования", err);
-    });
-  }
+// Black Jade Footer кнопка
+
+function copyToClipboard(id) {
+  const el = document.getElementById(id);
+  const text = el.textContent || el.innerText;
+
+  navigator.clipboard.writeText(text).catch((err) => {
+    console.error("Ошибка копирования", err);
+  });
+}
