@@ -221,6 +221,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Поддержка свайпа
+let startX = 0;
+
+function handleTouchStart(e) {
+  startX = e.touches[0].clientX;
+}
+
+function handleTouchEnd(e) {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      // свайп влево — следующий
+      current = (current + 1) % imageCount;
+      updateSlider(current);
+    } else {
+      // свайп вправо — предыдущий
+      current = (current - 1 + imageCount) % imageCount;
+      updateSlider(current);
+    }
+  }
+}
+
+// обработчики на слайдер
+const swipeArea = document.querySelector(".section-volunteering__slider");
+if (swipeArea) {
+  swipeArea.addEventListener("touchstart", handleTouchStart);
+  swipeArea.addEventListener("touchend", handleTouchEnd);
+}
+
 // Black Jade Слайдер section-take
 
 document.addEventListener("DOMContentLoaded", function () {
