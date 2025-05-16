@@ -351,8 +351,8 @@ window.addEventListener("DOMContentLoaded", toggleSliders);
 
 const swipeAreaTake = document.querySelector(".section-take__slider-mobile-wrapper");
 if (swipeAreaTake) {
-  swipeArea.addEventListener("touchstart", handleTouchStart);
-  swipeArea.addEventListener("touchend", handleTouchEnd);
+  swipeAreaTake.addEventListener("touchstart", handleTouchStart);
+  swipeAreaTake.addEventListener("touchend", handleTouchEnd);
 }
 
 // Footer кнопка
