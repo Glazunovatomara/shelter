@@ -1,9 +1,9 @@
 # Приют в косме
 
 <div align="center">
-<img alt="Static Badge" src="https://img.shields.io/badge/HTML-28%25-green">
-<img alt="Static Badge" src="https://img.shields.io/badge/SCSS-42.9%25-FF4F4F">
-<img alt="Static Badge" src="https://img.shields.io/badge/JavaScript-12.1%25-f1f1ba">
+<img alt="Static Badge" src="https://img.shields.io/badge/HTML-25.2%25-green">
+<img alt="Static Badge" src="https://img.shields.io/badge/SCSS-45.4%25-FF4F4F">
+<img alt="Static Badge" src="https://img.shields.io/badge/JavaScript-13.5%25-f1f1ba">
 </div>
 
 ---
