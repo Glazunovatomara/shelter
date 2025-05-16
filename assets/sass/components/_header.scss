@@ -178,6 +178,7 @@ li {
     width: 100%;
     height: 2px;
     background-color: vars.$pink;
+    transition: .3s;
 }
 .header-menu__burger span::after, 
 .header-menu__burger span::before {
@@ -200,12 +201,10 @@ li {
     top: 0px;
     width: 100%;
     transform: rotate(90deg);
-    transition: .3s;
 }
 .header-menu__checkbox:checked + .header-menu__burger span {
     bottom: 11px;
     transform: rotate(45deg);
-    transition: .3s;
 }
 .header-menu__checkbox:checked ~ .header-menu__burger span::after {
     width: 0px;
