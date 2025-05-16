@@ -61,16 +61,16 @@
 
 #sbp,
 #card-num {
+    padding-right: 12px;
     cursor: pointer;
+
+    @media screen and (max-width:404px) {
+        padding-right: 7px;
+    }
 }
 #copy_1,
 #copy_2 {
     content: url('/assets/icons/copy.svg');
-    padding-left: 12px;
     cursor: pointer;
-
-    @media screen and (max-width:481px) {
-        width: 24px;
-    }
 }
 
