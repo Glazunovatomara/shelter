@@ -26,7 +26,8 @@ const copySbp = document.getElementById("copy_1");
 const copyCard = document.getElementById("copy_2");
 const navPopup = document.getElementById("nav-popup");
 const menuPopup = document.getElementById("menu-popup");
-const close = document.getElementById("close");
+const closeBtn = document.getElementById("close");
+const overlayPopup = document.getElementById("popup-overlay");
 
 function showPopup() {
   popupOverlay.style.display = "block";
@@ -39,7 +40,9 @@ function hidePopup() {
 
 btnPopup.addEventListener("click", showPopup);
 navPopup.addEventListener("click", showPopup);
-close.addEventListener("click", hidePopup);
+document.getElementById("btn-volunteering").addEventListener("click", showPopup);
+closeBtn.addEventListener("click", hidePopup);
+overlayPopup.addEventListener("click", hidePopup);
 
 //copy
 copySbp.addEventListener("click", function () {
@@ -192,34 +195,6 @@ dots.forEach((dot, index) => {
 });
 
 updateSlider(current);
-
-// Красная кнопка для мобильной версии
-
-document.addEventListener("DOMContentLoaded", () => {
-  const popupOverlay = document.getElementById("popup-overlay");
-
-  function showPopup() {
-    popupOverlay.style.display = "block";
-    document.body.style.overflow = "hidden";
-  }
-
-  function hidePopup() {
-    popupOverlay.style.display = "none";
-    document.body.style.overflow = "scroll";
-  }
-
-  document
-    .querySelector(".section-volunteering__info-btn")
-    .addEventListener("click", () => {
-      showPopup();
-    });
-
-  popupOverlay.addEventListener("click", (e) => {
-    if (e.target === popupOverlay) {
-      hidePopup();
-    }
-  });
-});
 
 // Поддержка свайпа
 let startX = 0;
