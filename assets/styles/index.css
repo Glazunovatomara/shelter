@@ -10,13 +10,12 @@
  *     '
  *   assets\sass\components\_section-volunteering.scss 254:13  root stylesheet */
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
+/*body::before {
+  font-family: "Montserrat";
   white-space: pre;
   display: block;
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
   content: "Error: From line 67, column 1 of assets\\sass\\_templates.scss: \a    \2577 \a 67 \2502  .btn {\d\a    \2502  ^^^^^\a    \2575 \aYou may not @extend selectors across media queries.\a     \2577 \a 254 \2502              @extend .btn;\d\a     \2502              ^^^^^^^^^^^^\a     \2575 \a   assets\\sass\\components\\_section-volunteering.scss 254:13  root stylesheet";
-}
+}*/

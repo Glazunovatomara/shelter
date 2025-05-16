@@ -390,7 +390,7 @@ a {
     line-height: 28px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 520px) {
   .title, .section-take__title, .section-help__title {
     font-size: 1.8em;
     line-height: 22px;

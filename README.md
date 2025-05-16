@@ -1,9 +1,9 @@
 # Приют в косме
 
 <div align="center">
-<img alt="Static Badge" src="https://img.shields.io/badge/HTML-25.2%25-green">
-<img alt="Static Badge" src="https://img.shields.io/badge/SCSS-45.4%25-FF4F4F">
-<img alt="Static Badge" src="https://img.shields.io/badge/JavaScript-13.5%25-f1f1ba">
+<img alt="Static Badge" src="https://img.shields.io/badge/HTML-22.3%25-green">
+<img alt="Static Badge" src="https://img.shields.io/badge/SCSS-32.2%25-FF4F4F">
+<img alt="Static Badge" src="https://img.shields.io/badge/JavaScript-10.6%25-f1f1ba">
 </div>
 
 ---
@@ -55,6 +55,7 @@
 
 [Ирина](https://github.com/lrina7) - блок "Как можно помочь приюту”
 
-[Ирина](https://github.com/Black8Jade) - блок "Волонтерство",блок "Взять собаку домой", footer
+[Ирина](https://github.com/lrina7) , [Ирина](https://github.com/Black8Jade) - блок "Волонтерство"
+[Томара](https://github.com/Glazunovatomara) , [Ирина](https://github.com/Black8Jade) - блок "Взять собаку домой", footer
 
 ## Результат
