@@ -1508,12 +1508,12 @@ li {
 .footer__contacts a {
   cursor: pointer;
 }
-.footer__contacts .copy_button {
+.footer__contact-btn {
   background-color: #92cc72;
   border: none;
   cursor: pointer;
 }
-.footer__contacts .copy_button img {
+.footer__contact-btn img {
   width: 16px;
   height: 15px;
 }

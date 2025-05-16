@@ -30,16 +30,15 @@
         a {
             cursor: pointer;
         }
+    }
+    &__contact-btn{
+        background-color: vars.$dark-green;
+        border: none;
+        cursor: pointer;
 
-        .copy_button {
-            background-color: vars.$dark-green;
-            border: none;
-            cursor: pointer;
-
-            img {
-                width: 16px;
-                height: 15px;
-            }
+        img {
+            width: 16px;
+            height: 15px;
         }
     }
 }
