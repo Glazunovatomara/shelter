@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateContent(currentIndex); // начальное состояние
 });
 
-// Black Jade Слайдер section-volunteering
+//Слайдер section-volunteering
 
 const volunteeringSlider = document.getElementById("volunteering-slider-image");
 const prevBtn = document.getElementById("slider-button-prev");
@@ -230,7 +230,7 @@ if (swipeArea) {
   swipeArea.addEventListener("touchend", handleTouchEnd);
 }
 
-// Black Jade Слайдер section-take
+//Слайдер section-take
 
 document.addEventListener("DOMContentLoaded", function () {
   const slides = Array.from(
@@ -349,7 +349,13 @@ dots.forEach((dot, i) => {
 window.addEventListener("resize", toggleSliders);
 window.addEventListener("DOMContentLoaded", toggleSliders);
 
-// Black Jade Footer кнопка
+const swipeAreaTake = document.querySelector(".section-take__slider-mobile-wrapper");
+if (swipeAreaTake) {
+  swipeArea.addEventListener("touchstart", handleTouchStart);
+  swipeArea.addEventListener("touchend", handleTouchEnd);
+}
+
+// Footer кнопка
 
 function copyToClipboard(id) {
   const el = document.getElementById(id);
