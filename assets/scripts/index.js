@@ -41,8 +41,11 @@ function hidePopup() {
 btnPopup.addEventListener("click", showPopup);
 navPopup.addEventListener("click", showPopup);
 document.getElementById("btn-volunteering").addEventListener("click", showPopup);
-closeBtn.addEventListener("click", hidePopup);
-overlayPopup.addEventListener("click", hidePopup);
+document.addEventListener("click", function(e) {
+  if(e.target == overlayPopup && e.target !== popup || e.target == closeBtn) {
+    hidePopup()
+  }
+})
 
 //copy
 copySbp.addEventListener("click", function () {
