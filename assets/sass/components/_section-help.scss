@@ -1,17 +1,40 @@
 @use "../vars";
 @use "../templates";
+@use "../fonts";
 
 .section-help {
-  @extend %container;
-  padding: 100px 0;
+  width: 100%;
   background-color: vars.$beige;
+
+  &__container {
+    max-width: 1440px;
+    padding: 100px 120px;
+    margin: 0 auto;
+    @media screen and (max-width: 770px) {
+      padding: 70px 40px;
+    }
+  }
 
   &__title {
     @extend .title;
     text-align: center;
-    margin-bottom: 60px;
-    @media screen and (max-width: 768px) {
+    font-size: 32px;
+    letter-spacing: 0%;
+    line-height: 100%;
+    margin-bottom: 65px;
+
+    @media screen and (max-width: 790px) {
+      font-size: 25px;
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: 520px) {
       font-size: 18px;
+    }
+    @media screen and (max-width: 390px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 353px) {
+      font-size: 14px;
     }
   }
 
@@ -19,14 +42,8 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    width: 1200px;
     margin-bottom: 40px;
-    @media screen and (max-width: 1250px) {
-      width: 1000px;
-    }
-    @media screen and (max-width: 1050px) {
-      width: 700px;
-    }
+
     @media screen and (max-width: 768px) {
       display: none;
     }
@@ -36,13 +53,16 @@
     font-size: 20px;
     line-height: 36px;
     color: vars.$dark;
-    padding: 20px;
     border-radius: 20px;
+
     @media screen and (max-width: 768px) {
       text-align: center;
       font-size: 16px;
       line-height: 26px;
       padding: 10px;
+    }
+    @media screen and (max-width: 520px) {
+      padding: 0;
     }
   }
 }
@@ -64,6 +84,10 @@
     justify-content: center;
     width: 101px;
     height: 99px;
+    @media screen and (max-width: 900px) {
+      width: 81px;
+      height: 79px;
+    }
 
     img {
       width: 100%;
@@ -79,6 +103,9 @@
     text-transform: uppercase;
     text-align: center;
     transition: color 0.3s ease;
+    @media screen and (max-width: 900px) {
+      font-size: 13px;
+    }
   }
 
   &:hover:not(.help-card--active) .help-card__icon {
@@ -107,18 +134,28 @@
 }
 
 .help-content {
-  width: 1197px;
+  //width: 1197px;
   margin: 0 auto;
   display: none;
-  @media screen and (max-width: 1250px) {
+
+  /*@media screen and (max-width: 1300px) {
     width: 1000px;
+  }
+  @media screen and (max-width: 1150px) {
+    width: 850px;
   }
   @media screen and (max-width: 1050px) {
     width: 700px;
   }
   @media screen and (max-width: 768px) {
-    width: 320px;
+    width: 450px;
   }
+  @media screen and (max-width: 520px) {
+    width: 350px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 240px;
+  }*/
 
   &--active {
     display: block;
@@ -144,6 +181,7 @@
     li {
       list-style: disc;
       margin-bottom: 5px;
+
       @media screen and (max-width: 768px) {
         list-style: none;
       }
@@ -161,7 +199,6 @@
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
 
     .mobile-icon {
       width: 101px;
@@ -169,6 +206,7 @@
       background-color: vars.$dark-green;
       border-radius: 50%;
       padding: 16px;
+      margin-bottom: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -189,7 +227,7 @@
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
     gap: 10px;
 
     .pagination-dot {
