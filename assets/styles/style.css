@@ -575,6 +575,7 @@ li {
   font-size: 1.3em;
   text-align: center;
   padding: 5px;
+  cursor: pointer;
 }
 .header-menu__list-item:hover {
   transition: 0.2s;
@@ -680,9 +681,8 @@ li {
   position: absolute;
   top: 17px;
   right: 19px;
-  content: url(assets/icons/close.svg);
+  content: url(../icons/close.svg);
   cursor: pointer;
-  width: 100%;
 }
 @media screen and (max-width: 481px) {
   .popup-close {
