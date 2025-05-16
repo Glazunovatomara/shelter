@@ -44,9 +44,9 @@
     position: absolute;
     top: 17px;
     right: 19px;
-    content: url(./assets/icons/close.svg);
+    content: url(assets/icons/close.svg);
     cursor: pointer;
-
+    width: 100%;
     @media screen and (max-width:481px) {
         max-width: 25px;
     }
