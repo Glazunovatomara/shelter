@@ -120,7 +120,8 @@ li {
 //burger
 
 .header-menu {
-    align-content: center;
+    display: flex;
+    align-items: center;
 
     @media (min-width: 1160px) {
         display: none;
