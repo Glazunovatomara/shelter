@@ -273,10 +273,8 @@ document.addEventListener("DOMContentLoaded", function () {
   renderSlides();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const mobileSliderImg = document.getElementById(
-    "section-take__slider-mobile"
-  );
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileSliderImg = document.getElementById("section-take__slider-mobile");
   const dots = document.querySelectorAll("#section-take__dots .dot");
 
   const mobileImages = [
@@ -292,34 +290,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let mobileIndex = 0;
 
-  function updateMobileSlider() {
-    mobileSliderImg.src = mobileImages[mobileIndex];
+  function updateMobileSlider(index) {
+    mobileSliderImg.src = mobileImages[index];
+
     dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === mobileIndex);
+      dot.classList.toggle("active", i === index);
     });
   }
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", function () {
-      mobileIndex = i;
-      updateMobileSlider();
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", function () {
+        mobileIndex = i;
+        updateMobileSlider(mobileIndex);
+      });
     });
-  });
 
-  updateMobileSlider();
+  // Поддержка свайпа
+  let startX = 0;
+
+  function handleTouchStart(e) {
+    startX = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd(e) {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) { // Свайп влево
+        if (mobileIndex < mobileImages.length - 1) {
+          mobileIndex++;
+          updateMobileSlider(mobileIndex);
+        } 
+      } else {
+        if (mobileIndex > 0) {
+          mobileIndex--;
+          updateMobileSlider(mobileIndex);
+        }
+      }
+    }
+  }
+
+  updateMobileSlider(mobileIndex)
+
+  const swipeAreaTake = document.querySelector(".section-take__slider-mobile-wrapper");
+  if (swipeAreaTake) {
+    swipeAreaTake.addEventListener("touchstart", handleTouchStart);
+    swipeAreaTake.addEventListener("touchend", handleTouchEnd);
+  }
 });
-const desktopWrapper = document.getElementById("take-desktop");
-const mobileWrapper = document.getElementById("take-mobile");
-
-if (isMobile) {
-  desktopWrapper.style.display = "none";
-  mobileWrapper.style.display = "block";
-  updateMobileSlider();
-} else {
-  desktopWrapper.style.display = "block";
-  mobileWrapper.style.display = "none";
-  updateDesktopSlider();
-}
 
 if (prevBtn && nextBtn) {
   prevBtn.addEventListener("click", () => {
@@ -332,27 +350,6 @@ if (prevBtn && nextBtn) {
     indexDesktop = (indexDesktop + 1) % desktopImages.length;
     updateDesktopSlider();
   });
-}
-
-dots.forEach((dot, i) => {
-  dot.addEventListener("click", () => {
-    if (window.innerWidth <= 768) {
-      indexMobile = i;
-      updateMobileSlider();
-    } else {
-      indexDesktop = i;
-      updateDesktopSlider();
-    }
-  });
-});
-
-window.addEventListener("resize", toggleSliders);
-window.addEventListener("DOMContentLoaded", toggleSliders);
-
-const swipeAreaTake = document.querySelector(".section-take__slider-mobile-wrapper");
-if (swipeAreaTake) {
-  swipeAreaTake.addEventListener("touchstart", handleTouchStart);
-  swipeAreaTake.addEventListener("touchend", handleTouchEnd);
 }
 
 // Footer кнопка
