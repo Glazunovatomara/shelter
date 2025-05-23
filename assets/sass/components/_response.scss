@@ -1,0 +1,18 @@
+@use "../vars";
+
+.response {
+    position: fixed;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 102;
+}
+.response-info {
+    position: absolute;
+    padding: 8px;
+    font-size: 1.3em;
+    color: vars.$grey;
+    border-radius: 5px;
+    background-color: vars.$green;
+}

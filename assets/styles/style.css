@@ -534,7 +534,8 @@ li {
 }
 
 .header-menu {
-  align-content: center;
+  display: flex;
+  align-items: center;
 }
 @media (min-width: 1160px) {
   .header-menu {
@@ -715,6 +716,24 @@ li {
 #copy_2 {
   content: url(../icons/copy.svg);
   cursor: pointer;
+}
+
+.response {
+  position: fixed;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  z-index: 102;
+}
+
+.response-info {
+  position: absolute;
+  padding: 8px;
+  font-size: 1.3em;
+  color: #787878;
+  border-radius: 5px;
+  background-color: #f1f1ba;
 }
 
 .section-hero > div {

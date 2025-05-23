@@ -46,13 +46,20 @@ document.addEventListener("click", function(e) {
     hidePopup()
   }
 })
-
+//response
+const response = document.querySelector('.response')
+const responsCopy = () => {
+  response.style.display = 'flex';
+  setTimeout(() => {
+    response.style.display = '';
+  },500)
+}
 //copy
 copySbp.addEventListener("click", function () {
   navigator.clipboard
     .writeText(sbp.textContent)
     .then(function () {
-      console.log(sbp.textContent);
+      responsCopy()
     })
     .catch((error) => {
       alert`Произошла ошибка при копировании текста: , ${error}`;
@@ -62,7 +69,7 @@ copyCard.addEventListener("click", function () {
   navigator.clipboard
     .writeText(cardNum.textContent)
     .then(function () {
-      console.log(cardNum.textContent);
+      responsCopy()
     })
     .catch((error) => {
       alert`Произошла ошибка при копировании текста: , ${error}`;
@@ -72,7 +79,7 @@ sbp.addEventListener("click", function () {
   navigator.clipboard
     .writeText(sbp.textContent)
     .then(function () {
-      console.log(sbp.textContent);
+      responsCopy()
     })
     .catch((error) => {
       alert`Произошла ошибка при копировании текста: , ${error}`;
@@ -82,7 +89,7 @@ cardNum.addEventListener("click", function () {
   navigator.clipboard
     .writeText(cardNum.textContent)
     .then(function () {
-      console.log(cardNum.textContent);
+      responsCopy()
     })
     .catch((error) => {
       alert`Произошла ошибка при копировании текста: , ${error}`;
@@ -358,7 +365,9 @@ function copyToClipboard(id) {
   const el = document.getElementById(id);
   const text = el.textContent || el.innerText;
 
-  navigator.clipboard.writeText(text).catch((err) => {
+  navigator.clipboard.writeText(text).then(() => {
+    responsCopy()
+  }).catch((err) => {
     console.error("Ошибка копирования", err);
   });
 }
