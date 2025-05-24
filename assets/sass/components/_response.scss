@@ -4,12 +4,13 @@
     position: fixed;
     top: 15%;
     left: 50%;
-    transform: translateX(-50%);
     display: none;
     z-index: 102;
 }
 .response-info {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 8px;
     font-size: 1.3em;
     color: vars.$grey;
