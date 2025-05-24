@@ -179,9 +179,17 @@ const imageCount = 7;
 let current = 0;
 
 function updateSlider(index) {
-  volunteeringSlider.src = `./assets/images/section-volunteering_img_${
-    index + 1
-  }.jpg`;
+  volunteeringSlider.style.opacity = 0;
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      volunteeringSlider.src = `./assets/images/section-volunteering_img_${index + 1}.jpg`;
+      volunteeringSlider.onload = () => {
+        volunteeringSlider.style.opacity = 1;
+      };
+    }, 200);
+  });
+
   dots.forEach((dot, i) => {
     dot.classList.toggle("active", i === index);
   });
@@ -239,45 +247,91 @@ if (swipeArea) {
 
 //Слайдер section-take
 
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = Array.from(
-    document.querySelectorAll(".section-take__slider-image")
-  );
-  const prevBtn = document.getElementById("slider_2_button_prev");
-  const nextBtn = document.getElementById("slider_2_button_next");
-  let centerIndex = 1;
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".section-take__slider-track");
+  const slides = Array.from(document.querySelectorAll(".section-take__slider-image"));
+  const slideCount = slides.length;
 
-  function renderSlides() {
-    slides.forEach((slide, i) => {
-      if (i >= centerIndex - 1 && i <= centerIndex + 1) {
-        slide.style.display = "block";
-      } else {
-        slide.style.display = "none";
-      }
+  slides.forEach(slide => {
+    const clone = slide.cloneNode(true);
+    clone.classList.add("clone");
+    track.appendChild(clone);
+  });
 
-      slide.classList.remove("section-take__slider-image--active");
-    });
+  slides.forEach(slide => {
+    const clone = slide.cloneNode(true);
+    clone.classList.add("clone");
+    track.insertBefore(clone, track.firstChild);
+  });
 
-    if (slides[centerIndex]) {
-      slides[centerIndex].classList.add("section-take__slider-image--active");
+  let currentIndex = slideCount;
+  let isTransitioning = false;
+
+  const allSlides = track.querySelectorAll(".section-take__slider-image");
+
+  function getCenterOffset(index) {
+    const container = document.querySelector(".section-take__slider-window");
+    const center = container.offsetWidth / 2;
+    const slide = allSlides[index];
+    return center - slide.offsetWidth / 2;
+  }
+
+  function setActiveSlide(index) {
+    allSlides.forEach(s => s.classList.remove("section-take__slider-image--active"));
+    if (allSlides[index]) {
+      allSlides[index].classList.add("section-take__slider-image--active");
     }
   }
 
-  prevBtn.addEventListener("click", function () {
-    if (centerIndex > 1) {
-      centerIndex--;
-      renderSlides();
-    }
-  });
+  function moveToSlide(index) {
+    if (isTransitioning) return;
+    isTransitioning = true;
 
-  nextBtn.addEventListener("click", function () {
-    if (centerIndex < slides.length - 2) {
-      centerIndex++;
-      renderSlides();
-    }
-  });
+    const targetSlide = allSlides[index];
+    const offset = targetSlide.offsetLeft;
 
-  renderSlides();
+    track.style.transition = "transform 0.6s ease";
+    track.style.transform = "translateX(" + (-offset + getCenterOffset(index)) + "px)";
+
+    setActiveSlide(index);
+    currentIndex = index;
+
+    track.addEventListener("transitionend", onTransitionEnd);
+  }
+
+  function jumpToSlide(index) {
+    const targetSlide = allSlides[index];
+    const offset = targetSlide.offsetLeft;
+
+    track.style.transition = "none";
+    track.style.transform = "translateX(" + (-offset + getCenterOffset(index)) + "px)";
+    setActiveSlide(index);
+    currentIndex = index;
+  }
+
+  function onTransitionEnd() {
+    track.removeEventListener("transitionend", onTransitionEnd);
+    isTransitioning = false;
+
+    if (currentIndex >= slideCount * 2) {
+      currentIndex = slideCount;
+      jumpToSlide(currentIndex);
+    } else if (currentIndex < slideCount) {
+      currentIndex = slideCount * 2 - 1;
+      jumpToSlide(currentIndex);
+    }
+  }
+
+  const prevBtn = document.getElementById("slider_2_button_prev");
+  const nextBtn = document.getElementById("slider_2_button_next");
+
+  prevBtn.addEventListener("click", () => moveToSlide(currentIndex - 1));
+  nextBtn.addEventListener("click", () => moveToSlide(currentIndex + 1));
+
+  requestAnimationFrame(() => {
+    jumpToSlide(currentIndex);
+    setActiveSlide(currentIndex);
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -298,18 +352,28 @@ document.addEventListener("DOMContentLoaded", () => {
   let mobileIndex = 0;
 
   function updateMobileSlider(index) {
-    mobileSliderImg.src = mobileImages[index];
+    mobileSliderImg.style.opacity = 0;
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        mobileSliderImg.src = mobileImages[index];
+        mobileSliderImg.onload = () => {
+          mobileSliderImg.style.opacity = 1;
+        };
+      }, 200);
+    });
 
     dots.forEach((dot, i) => {
       dot.classList.toggle("active", i === index);
     });
   }
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", function () {
-        mobileIndex = i;
-        updateMobileSlider(mobileIndex);
-      });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", function () {
+      mobileIndex = i;
+      updateMobileSlider(mobileIndex);
     });
+  });
 
   // Поддержка свайпа
   let startX = 0;
@@ -327,7 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mobileIndex < mobileImages.length - 1) {
           mobileIndex++;
           updateMobileSlider(mobileIndex);
-        } 
+        }
       } else {
         if (mobileIndex > 0) {
           mobileIndex--;
@@ -337,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  updateMobileSlider(mobileIndex)
+  updateMobileSlider(mobileIndex);
 
   const swipeAreaTake = document.querySelector(".section-take__slider-mobile-wrapper");
   if (swipeAreaTake) {
@@ -345,19 +409,6 @@ document.addEventListener("DOMContentLoaded", () => {
     swipeAreaTake.addEventListener("touchend", handleTouchEnd);
   }
 });
-
-if (prevBtn && nextBtn) {
-  prevBtn.addEventListener("click", () => {
-    indexDesktop =
-      (indexDesktop - 1 + desktopImages.length) % desktopImages.length;
-    updateDesktopSlider();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    indexDesktop = (indexDesktop + 1) % desktopImages.length;
-    updateDesktopSlider();
-  });
-}
 
 // Footer кнопка
 
