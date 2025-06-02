@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const swipeArea = document.querySelector(".mobile-help-view");
+  const swipeArea = document.getElementById("slider-help")
   if (swipeArea) {
     swipeArea.addEventListener("touchstart", handleTouchStart);
     swipeArea.addEventListener("touchend", handleTouchEnd);
