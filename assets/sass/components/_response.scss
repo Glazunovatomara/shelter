@@ -7,6 +7,9 @@
     display: none;
     z-index: 102;
 }
+.response-active {
+    display: flex;
+}
 .response-info {
     position: absolute;
     left: 50%;

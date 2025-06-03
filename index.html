@@ -33,7 +33,7 @@
             <li class="header-nav__list-item">
               <a href="#contacts">контакты</a>
             </li>
-            <li class="header-nav__list-item" id="nav-popup">пожертвовать</li>
+            <li class="header-nav__list-item" id="nav-popup" aria-controls="popup">пожертвовать</li>
           </ul>
         </nav>
         <div class="header-menu">
@@ -53,14 +53,12 @@
               <a href="#help" class="header-menu__list-item">Как помочь</a>
             </li>
             <li>
-              <a href="#volunteering" class="header-menu__list-item"
-                >волонтерство</a
-              >
+              <a href="#volunteering" class="header-menu__list-item">волонтерство</a>
             </li>
             <li>
               <a href="#contacts" class="header-menu__list-item">контакты</a>
             </li>
-            <li class="header-menu__list-item" id="menu-popup">пожертвовать</li>
+            <li class="header-menu__list-item" id="menu-popup" >пожертвовать</li>
           </ul>
         </div>
       </div>
@@ -85,16 +83,24 @@
               десяти лет. Но есть и те, кто молод и готов бежать навстречу
               новому дому.
             </p>
-            <button class="section-hero__info-btn" id="btn-hero">
+            <button 
+              class="section-hero__info-btn" 
+              id="btn-hero" 
+              aria-controls="popup">
               пожертвовать
             </button>
           </div>
         </div>
       </section>
-      <div id="popup-overlay">
-        <div class="popup" id="popup">
-          <span class="popup-close" id="close"></span>
-          <p class="popup-text">
+      <div class="popup-overlay">
+        <div class="popup" id="popup"
+          role="dialog"
+          aria-labelledby="label"
+          aria-modal="true">
+          <button class="popup-close" aria-label="Закрыть диалоговое окно">
+            <img src="./assets/icons/close.svg" alt="Закрыть" id="close"/>
+          </button>
+          <p class="popup-text" id="label">
             Спасибо, что решили помочь! Ваш вклад - это корм, лечение и тепло
             для стареньких собак.
           </p>
@@ -102,16 +108,19 @@
             Скопируйте реквизиты - любая сумма имеет значение.
           </p>
           <p class="popup-text">
-            СБП: <span class="popup-text__decor" id="sbp">89062153045</span
-            ><span id="copy_1"></span><br />
+            СБП: <span class="popup-text__decor" id="sbp">89062153045</span>
+            <button id="copy_1" aria-label="Копировать номер телефона">
+              <img src="./assets/icons/copy.svg" alt="Копировать"/>
+            </button><br/>
             КАРТА СБЕР:
-            <span class="popup-text__decor" id="card-num"
-              >5228 6005 2983 6159</span
-            ><span id="copy_2"></span><br />
+            <span class="popup-text__decor" id="card-num">5228 6005 2983 6159</span>
+            <button id="copy_2" aria-label="Копировать email">
+              <img src="./assets/icons/copy.svg" alt="Копировать"/>
+            </button><br/>
             <span class="popup-text__decor">(Мария Евгеньевна К.)</span>
           </p>
           <p class="popup-text">
-            Спасибо, что не прошли мимо.<br />
+            Спасибо, что не прошли мимо.<br/>
             Вместе мы можем больше.
           </p>
         </div>
@@ -174,10 +183,9 @@
               </p>
               <div class="help-content__donation">
                 <h4 class="subtitle">Пожертвовать:</h4>
-                <span>СБП: <b>89062153045</b></span
-                ><br />
+                <span>СБП: <b>89062153045</b></span><br/>
                 <span> Карта СБЕР:<b> 5228 6005 2983 6159</b></span>
-                <br />
+                <br/>
                 <span>(Мария Евгеньевна К.)</span>
                 <p>Даже 100 рублей - важный вклад. Спасибо, что вы рядом.</p>
               </div>
@@ -328,7 +336,7 @@
                   рады тебе и твоему времени.
                 </li>
               </ul>
-              <button class="section-volunteering__info-btn" id="btn-volunteering">
+              <button class="section-volunteering__info-btn" id="btn-volunteering" aria-controls="popup">
                 ПОЖЕРТВОВАТЬ
               </button>
             </div>
@@ -436,11 +444,11 @@
             <button
               class="footer__contact-btn"
               onclick="copyToClipboard('phone')"
-              aria-label="Copy phone number"
+              aria-label="Копировать номер телефона"
             >
               <img src="./assets/icons/copy.svg" alt="copy" />
             </button>
-            <br />
+            <br/>
             E-mail:
             <a href="mailto:priyut.kosma@mail.ru" id="email"
               >priyut.kosma@mail.ru</a
@@ -448,7 +456,7 @@
             <button
               class="footer__contact-btn"
               onclick="copyToClipboard('email')"
-              aria-label="Copy email address"
+              aria-label="Копировать email"
             >
               <img src="./assets/icons/copy.svg" alt="copy" />
             </button>

@@ -18,7 +18,7 @@ burger.addEventListener("click", closeBurger);
 
 //popup
 const btnPopup = document.getElementById("btn-hero");
-const popupOverlay = document.getElementById("popup-overlay");
+const popupOverlay = document.querySelector(".popup-overlay");
 const popup = document.getElementById("popup");
 const sbp = document.getElementById("sbp");
 const cardNum = document.getElementById("card-num");
@@ -27,33 +27,34 @@ const copyCard = document.getElementById("copy_2");
 const navPopup = document.getElementById("nav-popup");
 const menuPopup = document.getElementById("menu-popup");
 const closeBtn = document.getElementById("close");
-const overlayPopup = document.getElementById("popup-overlay");
 
 function showPopup() {
-  popupOverlay.style.display = "block";
+  popupOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
 }
 function hidePopup() {
-  popupOverlay.style.display = "none";
+  popupOverlay.classList.remove("active");
   document.body.style.overflow = "scroll";
 }
 
-btnPopup.addEventListener("click", showPopup);
-navPopup.addEventListener("click", showPopup);
-document.getElementById("btn-volunteering").addEventListener("click", showPopup);
 document.addEventListener("click", function(e) {
-  if(e.target == overlayPopup && e.target !== popup || e.target == closeBtn) {
+  if(e.target === popupOverlay || e.target === closeBtn) {
     hidePopup()
   }
+  if(e.target === btnPopup || e.target === navPopup || e.target === document.getElementById("btn-volunteering")) {
+    showPopup()
+  }
 })
+
 //response
 const response = document.querySelector('.response')
 const responsCopy = () => {
-  response.style.display = 'flex';
+  response.classList.add("response-active")
   setTimeout(() => {
-    response.style.display = '';
+    response.classList.remove("response-active")
   },500)
 }
+
 //copy
 copySbp.addEventListener("click", function () {
   navigator.clipboard
@@ -101,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".help-card");
   const contents = document.querySelectorAll(".help-content");
   const mobileIcon = document.querySelector(".mobile-icon img");
-  const mobileTextBlocks = document.querySelectorAll(".help-content");
   const paginationDots = document.querySelectorAll(".pagination-dot");
 
   let currentIndex = 0;
