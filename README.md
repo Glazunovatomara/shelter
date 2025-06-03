@@ -59,4 +59,4 @@
 
 [Томара](https://github.com/Glazunovatomara) , [Ирина](https://github.com/Black8Jade) - блок "Взять собаку домой", footer
 
-## [Результат] (glazunovatomara.github.io/shelter/)
+## [Результат](glazunovatomara.github.io/shelter/)
