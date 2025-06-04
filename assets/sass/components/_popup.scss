@@ -1,7 +1,7 @@
 @use "../vars";
 
 
-#popup-overlay {
+.popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,6 +10,9 @@
     display: none;
     background-color: #00000080;
     z-index: 101;
+}
+.active {
+    display: block;
 }
 .popup {
     position: absolute;
@@ -39,25 +42,30 @@
         line-height: 26px;
         gap: 26px;
     }
-}
-.popup-close {
+    
+    &-close {
     position: absolute;
     top: 17px;
     right: 19px;
-    content: url(../icons/close.svg);
+    background: none;
+    border: none;
     cursor: pointer;
     
-
-    @media screen and (max-width:481px) {
-        max-width: 25px;
+        & img {
+            @media screen and (max-width:481px) {
+            max-width: 25px;
+        }
     }
-}
-.popup-close:hover {
-    transform: scale(1.05);
-    transition-duration: 0.25s;
-}
-.popup-text__decor {
-    font-weight: 700;
+    
+        &:hover {
+            transform: scale(1.05);
+            transition-duration: 0.25s;
+        }
+    }
+
+    &-text__decor {
+        font-weight: 700;
+    }
 }
 
 #sbp,
@@ -71,7 +79,8 @@
 }
 #copy_1,
 #copy_2 {
-    content: url(../icons/copy.svg);
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
