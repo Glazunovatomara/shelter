@@ -326,15 +326,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (Math.abs(diff) > 50) {
       if (diff > 0) { // Свайп влево
-        if (mobileIndex < mobileImages.length - 1) {
-          mobileIndex++;
+        mobileIndex = (mobileIndex + 1) % mobileImages.length;
           updateMobileSlider(mobileIndex);
-        } 
       } else {
-        if (mobileIndex > 0) {
-          mobileIndex--;
+        mobileIndex = (mobileIndex - 1 + mobileImages.length) % mobileImages.length;
           updateMobileSlider(mobileIndex);
-        }
       }
     }
   }
