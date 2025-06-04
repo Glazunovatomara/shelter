@@ -151,14 +151,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const diff = startX - endX;
 
     if (Math.abs(diff) > 50) {
-      if (diff > 0 && currentIndex < cards.length - 1) {
-        updateContent(currentIndex + 1);
-      } else if (diff < 0 && currentIndex > 0) {
-        updateContent(currentIndex - 1);
+      if (diff > 0) {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateContent(currentIndex);
+      } else if (diff < 0) {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateContent(currentIndex);
       }
     }
   }
-
+console.log(cards.length)
   const swipeArea = document.getElementById("slider-help")
   if (swipeArea) {
     swipeArea.addEventListener("touchstart", handleTouchStart);
