@@ -51,12 +51,10 @@
 
 [![Contributors](https://contrib.rocks/image?repo=Glazunovatomara/shelter)](https://github.com/Glazunovatomara/shelter/graphs/contributors)
 
-[Томара](https://github.com/Glazunovatomara) - header, pop-up, блок "О приюте"
+[Томара](https://github.com/Glazunovatomara)
 
-[Ирина](https://github.com/lrina7) - блок "Как можно помочь приюту”
+[Ирина](https://github.com/lrina7)
 
-[Ирина](https://github.com/lrina7) , [Ирина](https://github.com/Black8Jade) - блок "Волонтерство"
-
-[Томара](https://github.com/Glazunovatomara) , [Ирина](https://github.com/Black8Jade) - блок "Взять собаку домой", footer
+[Ирина](https://github.com/Black8Jade)
 
 ## [Результат](glazunovatomara.github.io/shelter/)
