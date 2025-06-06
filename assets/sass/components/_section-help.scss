@@ -134,28 +134,8 @@
 }
 
 .help-content {
-  //width: 1197px;
   margin: 0 auto;
   display: none;
-
-  /*@media screen and (max-width: 1300px) {
-    width: 1000px;
-  }
-  @media screen and (max-width: 1150px) {
-    width: 850px;
-  }
-  @media screen and (max-width: 1050px) {
-    width: 700px;
-  }
-  @media screen and (max-width: 768px) {
-    width: 450px;
-  }
-  @media screen and (max-width: 520px) {
-    width: 350px;
-  }
-  @media screen and (max-width: 375px) {
-    width: 240px;
-  }*/
 
   &--active {
     display: block;
@@ -242,5 +222,10 @@
         background-color: vars.$dark-green;
       }
     }
+  }
+}
+.content-donation img {
+  @media screen and (max-width: 768px) {
+    width: 16px;
   }
 }

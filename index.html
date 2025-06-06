@@ -109,12 +109,12 @@
           </p>
           <p class="popup-text">
             СБП: <span class="popup-text__decor" id="sbp">89062153045</span>
-            <button id="copy_1" aria-label="Копировать номер телефона">
+            <button class="popup-text__button button-copy" id="copy_1" aria-label="Копировать номер телефона">
               <img src="./assets/icons/copy.svg" alt="Копировать"/>
             </button><br/>
             КАРТА СБЕР:
             <span class="popup-text__decor" id="card-num">5228 6005 2983 6159</span>
-            <button id="copy_2" aria-label="Копировать email">
+            <button class="popup-text__button button-copy" id="copy_2"  aria-label="Копировать email">
               <img src="./assets/icons/copy.svg" alt="Копировать"/>
             </button><br/>
             <span class="popup-text__decor">(Мария Евгеньевна К.)</span>
@@ -183,8 +183,15 @@
               </p>
               <div class="help-content__donation">
                 <h4 class="subtitle">Пожертвовать:</h4>
-                <span>СБП: <b>89062153045</b></span><br/>
+                <span>СБП: <b>89062153045</b>
+                </span>
+                <button class="content-donation button-copy" id="copy_3" aria-label="Копировать номер телефона">
+                  <img src="./assets/icons/copy.svg" alt="Копировать"/>
+                </button><br/>
                 <span> Карта СБЕР:<b> 5228 6005 2983 6159</b></span>
+                <button class="content-donation button-copy" id="copy_4" aria-label="Копировать номер телефона">
+                  <img src="./assets/icons/copy.svg" alt="Копировать"/>
+                </button>
                 <br/>
                 <span>(Мария Евгеньевна К.)</span>
                 <p>Даже 100 рублей - важный вклад. Спасибо, что вы рядом.</p>
