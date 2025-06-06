@@ -24,6 +24,8 @@ const sbp = document.getElementById("sbp");
 const cardNum = document.getElementById("card-num");
 const copySbp = document.getElementById("copy_1");
 const copyCard = document.getElementById("copy_2");
+const copySbpHelp = document.getElementById("copy_3")
+const copyCardHelp = document.getElementById("copy_4")
 const navPopup = document.getElementById("nav-popup");
 const menuPopup = document.getElementById("menu-popup");
 const closeBtn = document.getElementById("close");
@@ -56,45 +58,33 @@ const responsCopy = () => {
 }
 
 //copy
-copySbp.addEventListener("click", function () {
-  navigator.clipboard
-    .writeText(sbp.textContent)
-    .then(function () {
-      responsCopy()
-    })
-    .catch((error) => {
-      alert`Произошла ошибка при копировании текста: , ${error}`;
-    });
+
+const copyTextToClipboard = (text) => {
+  if(text === null || text === undefined) {
+    console.error('Произошла ошибка')
+    alert ('Произошла ошибка')
+  }
+  navigator.clipboard.writeText(text.textContent)
+  .then(() => {
+    responsCopy()
+  })
+  .catch(error => {
+    console.error (`Произошла ошибка при копировании текста: ${error}`)
+    alert (`Произошла ошибка при копировании текста: ${error}`)
+  })  
+}
+ 
+copySbp.addEventListener("click", () => {
+  copyTextToClipboard(sbp);
 });
-copyCard.addEventListener("click", function () {
-  navigator.clipboard
-    .writeText(cardNum.textContent)
-    .then(function () {
-      responsCopy()
-    })
-    .catch((error) => {
-      alert`Произошла ошибка при копировании текста: , ${error}`;
-    });
+copyCard.addEventListener("click", () => {
+  copyTextToClipboard(cardNum);
 });
-sbp.addEventListener("click", function () {
-  navigator.clipboard
-    .writeText(sbp.textContent)
-    .then(function () {
-      responsCopy()
-    })
-    .catch((error) => {
-      alert`Произошла ошибка при копировании текста: , ${error}`;
-    });
+copySbpHelp.addEventListener("click", () => {
+  copyTextToClipboard(sbp);
 });
-cardNum.addEventListener("click", function () {
-  navigator.clipboard
-    .writeText(cardNum.textContent)
-    .then(function () {
-      responsCopy()
-    })
-    .catch((error) => {
-      alert`Произошла ошибка при копировании текста: , ${error}`;
-    });
+copyCardHelp.addEventListener("click", () => {
+  copyTextToClipboard(cardNum);
 });
 
 //help
@@ -160,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-console.log(cards.length)
+
   const swipeArea = document.getElementById("slider-help")
   if (swipeArea) {
     swipeArea.addEventListener("touchstart", handleTouchStart);

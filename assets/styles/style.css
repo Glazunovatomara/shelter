@@ -410,6 +410,12 @@ a {
   cursor: pointer;
 }
 
+.button-copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .footer__container, .section-take__container, .section-hero > div, .header > div {
   max-width: 1440px;
   min-width: 320px;
@@ -714,13 +720,6 @@ li {
   }
 }
 
-#copy_1,
-#copy_2 {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 .response {
   position: fixed;
   top: 15%;
@@ -1006,24 +1005,6 @@ li {
 .help-content {
   margin: 0 auto;
   display: none;
-  /*@media screen and (max-width: 1300px) {
-    width: 1000px;
-  }
-  @media screen and (max-width: 1150px) {
-    width: 850px;
-  }
-  @media screen and (max-width: 1050px) {
-    width: 700px;
-  }
-  @media screen and (max-width: 768px) {
-    width: 450px;
-  }
-  @media screen and (max-width: 520px) {
-    width: 350px;
-  }
-  @media screen and (max-width: 375px) {
-    width: 240px;
-  }*/
 }
 .help-content--active {
   display: block;
@@ -1103,6 +1084,12 @@ li {
   }
   .mobile-pagination .pagination-dot.active {
     background-color: #92cc72;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content-donation img {
+    width: 16px;
   }
 }
 
