@@ -21,11 +21,8 @@ const btnPopup = document.getElementById("btn-hero");
 const popupOverlay = document.querySelector(".popup-overlay");
 const popup = document.getElementById("popup");
 const sbp = document.getElementById("sbp");
-const cardNum = document.getElementById("card-num");
 const copySbp = document.getElementById("copy_1");
-const copyCard = document.getElementById("copy_2");
-const copySbpHelp = document.getElementById("copy_3")
-const copyCardHelp = document.getElementById("copy_4")
+const copySbpHelp = document.getElementById("copy_2");
 const navPopup = document.getElementById("nav-popup");
 const menuPopup = document.getElementById("menu-popup");
 const closeBtn = document.getElementById("close");
@@ -77,14 +74,8 @@ const copyTextToClipboard = (text) => {
 copySbp.addEventListener("click", () => {
   copyTextToClipboard(sbp);
 });
-copyCard.addEventListener("click", () => {
-  copyTextToClipboard(cardNum);
-});
 copySbpHelp.addEventListener("click", () => {
   copyTextToClipboard(sbp);
-});
-copyCardHelp.addEventListener("click", () => {
-  copyTextToClipboard(cardNum);
 });
 
 //help
